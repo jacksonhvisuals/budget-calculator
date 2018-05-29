@@ -1,0 +1,15 @@
+input {
+    width: auto;
+    padding: 6px;
+    border: none;
+    border-bottom: 1px solid grey;
+    font-size: 18px;
+}
+input:focus {
+    outline: none;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
