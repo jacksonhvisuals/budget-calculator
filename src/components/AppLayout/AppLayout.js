@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import BudgetInput from '../BudgetInput/BudgetInput';
-import ItemInput from '../ItemInput/ItemInput';
 import BudgetItemContainer from '../BudgetItemContainer/BudgetItemContainer';
 var currentBudgetCollection;
 
-class AppLayout extends React.Component {
+class AppLayout extends Component {
     constructor(props) {
         super(props);
         this.state = {

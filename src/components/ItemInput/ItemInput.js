@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ItemInput.css';
 
-class ItemInput extends React.Component {
+class ItemInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,7 +28,7 @@ class ItemInput extends React.Component {
             <div>
                 <input type="text" id="itemTitle" placeholder={this.state.itemName} value={this.state.itemName} onChange={this.updateName} />
                 <input type="number" id="itemPercentage" placeholder={this.state.itemPercentage} value={this.state.itemPercentage} onChange={this.updatePercentage} />
-                <span  id="itemTotal">{this.props.itemTotal}</span>
+                <span  id="itemTotal">${this.props.itemTotal}</span>
             </div>
         );
     }

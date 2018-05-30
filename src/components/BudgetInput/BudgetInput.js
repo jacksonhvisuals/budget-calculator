@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './BudgetInput.css';
-class BudgetInput extends React.Component {
+
+class BudgetInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
