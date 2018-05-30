@@ -11,13 +11,13 @@ class AppLayout extends Component {
             budgetItemCollection: [
             {
               name: "Savings",
-              id: 1,
+              id: Math.floor(Math.random() * (1876251987 - 51987) + 51987),
               percent: 20,
               total: "",  
             },
             {
                 name: "Food",
-                id: 2,
+                id: Math.floor(Math.random() * (1876251987 - 51987) + 51987),
                 percent: 14,
                 total: "",  
               },
@@ -29,6 +29,7 @@ class AppLayout extends Component {
         this.setBudgetTotal = this.setBudgetTotal.bind(this);
         this.itemChangeHandler = this.itemChangeHandler.bind(this);
         this.selectItem = this.selectItem.bind(this);
+        this.addNewItem = this.addNewItem.bind(this);
         currentBudgetCollection = this.state.budgetItemCollection;
 
     }
@@ -56,6 +57,7 @@ class AppLayout extends Component {
       }
 
     itemChangeHandler(itemId, itemName, itemPercent) {
+        console.log("Bundle received. ID: " + itemId + ", name: " + itemName + ", percent: " + itemPercent);
         currentBudgetCollection[this.selectItem(itemId)]["name"] = itemName;
         currentBudgetCollection[this.selectItem(itemId)]["percent"] = itemPercent;
         this.setState({budgetItemCollection: currentBudgetCollection});
@@ -68,11 +70,24 @@ class AppLayout extends Component {
         this.calculateAmounts();
     }
 
+    addNewItem() {
+        let newid = Math.floor(Math.random() * (1876251987 - 51987) + 51987);
+        let newItem = {
+            name: "",
+            id: newid,
+            percent: 0,
+            total: "",  
+          };
+          currentBudgetCollection.push(newItem);
+          this.setState({budgetItemCollection: currentBudgetCollection});     
+    }
+
     render() {
         return(
             <div>
                 <BudgetInput budgetConfirmHandler={this.setBudgetTotal} currentTotal={this.state.total}/>
                 <BudgetItemContainer budgetItemCollection={this.state.budgetItemCollection} itemChangeHandler={this.itemChangeHandler}/>
+                <button onClick={this.addNewItem}>Add new item</button>
             </div>
         );
     }
