@@ -18,11 +18,13 @@ class ItemInput extends Component {
         this.setState({itemName: evt.target.value});
         this.props.itemChangeHandler(this.props.itemId, this.state.itemName, this.state.itemPercentage);
     }
+    
     updatePercentageBlur(evt) {
         this.setState({itemPercentage: parseInt(evt.target.value, 10)});
         this.props.itemChangeHandler(this.props.itemId, this.state.itemName, this.state.itemPercentage);
         console.log(parseInt(evt.target.value, 10));
     }
+
     updatePercentage(evt) {
         this.setState({itemPercentage: parseInt(evt.target.value, 10)});
     }

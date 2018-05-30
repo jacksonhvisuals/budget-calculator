@@ -32,4 +32,5 @@ class BudgetInput extends Component {
     }
 
 }
+
 export default BudgetInput;
