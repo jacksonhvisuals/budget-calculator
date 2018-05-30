@@ -17,7 +17,7 @@ class AppLayout extends React.Component {
             }],
         };
 
-        this.calculateAmount = this.calculateAmount.bind(this);
+        this.calculateAmounts = this.calculateAmounts.bind(this);
         this.setBudgetTotal = this.setBudgetTotal.bind(this);
         this.itemChangeHandler = this.itemChangeHandler.bind(this);
         this.selectItem = this.selectItem.bind(this);
@@ -25,15 +25,15 @@ class AppLayout extends React.Component {
 
     }
 
-    calculateAmount(id, percentage) {
-        let currentAmount = this.state.total * percentage;
-        return currentAmount;
-    }
-
-    setBudgetTotal(amount) {
-        this.setState({
-            total: amount
+    calculateAmounts() {
+        let budgetTotal = this.state.total;
+        let calculation;
+        Object.keys(currentBudgetCollection).forEach(function(key){
+            calculation = budgetTotal * (currentBudgetCollection[key]["percent"] / 100);
+            currentBudgetCollection[key]["total"] = calculation;
         });
+        this.setState({budgetItemCollection: currentBudgetCollection});
+        console.log(currentBudgetCollection);
     }
 
     selectItem(itemid) {
@@ -51,6 +51,13 @@ class AppLayout extends React.Component {
         currentBudgetCollection[this.selectItem(itemId)]["name"] = itemName;
         currentBudgetCollection[this.selectItem(itemId)]["percent"] = itemPercent;
         this.setState({budgetItemCollection: currentBudgetCollection});
+    }
+
+    setBudgetTotal(amount) {
+        this.setState({
+            total: amount
+        });
+        this.calculateAmounts();
     }
 
     render() {

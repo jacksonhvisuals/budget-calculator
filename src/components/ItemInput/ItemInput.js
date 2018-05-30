@@ -28,8 +28,7 @@ class ItemInput extends React.Component {
             <div>
                 <input type="text" id="itemTitle" placeholder={this.state.itemName} value={this.state.itemName} onChange={this.updateName} />
                 <input type="number" id="itemPercentage" placeholder={this.state.itemPercentage} value={this.state.itemPercentage} onChange={this.updatePercentage} />
-                <span  id="itemTotal">Default value</span>
-
+                <span  id="itemTotal">{this.props.itemTotal}</span>
             </div>
         );
     }
