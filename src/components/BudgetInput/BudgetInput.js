@@ -5,7 +5,7 @@ class BudgetInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: '',
+            inputValue: this.props.currentTotal,
         };
         this.updateInputValue = this.updateInputValue.bind(this);
         this.updateStateValue = this.updateStateValue.bind(this);

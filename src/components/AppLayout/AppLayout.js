@@ -7,13 +7,22 @@ class AppLayout extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            total: 0,
-            budgetItemCollection: [{
+            total: 1420,
+            budgetItemCollection: [
+            {
               name: "Savings",
               id: 1,
               percent: 20,
               total: "",  
-            }],
+            },
+            {
+                name: "Food",
+                id: 2,
+                percent: 14,
+                total: "",  
+              },
+        
+            ],
         };
 
         this.calculateAmounts = this.calculateAmounts.bind(this);
@@ -28,7 +37,7 @@ class AppLayout extends Component {
         let budgetTotal = this.state.total;
         let calculation;
         Object.keys(currentBudgetCollection).forEach(function(key){
-            calculation = budgetTotal * (currentBudgetCollection[key]["percent"] / 100);
+            calculation = (budgetTotal * (currentBudgetCollection[key]["percent"] / 100)).toFixed(2);
             currentBudgetCollection[key]["total"] = calculation;
         });
         this.setState({budgetItemCollection: currentBudgetCollection});
@@ -62,7 +71,7 @@ class AppLayout extends Component {
     render() {
         return(
             <div>
-                <BudgetInput budgetConfirmHandler={this.setBudgetTotal}/>
+                <BudgetInput budgetConfirmHandler={this.setBudgetTotal} currentTotal={this.state.total}/>
                 <BudgetItemContainer budgetItemCollection={this.state.budgetItemCollection} itemChangeHandler={this.itemChangeHandler}/>
             </div>
         );
