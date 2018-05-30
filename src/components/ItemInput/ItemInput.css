@@ -1,6 +1,13 @@
 #itemTitle {
-    margin-right: 20px;
+    display: block;
 }
 #itemPercentage {
-    margin-right: 20px;
+    display: block;
+}
+#item-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+    margin-top: 10px;
+    padding: 20px;
 }

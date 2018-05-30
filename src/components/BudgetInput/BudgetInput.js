@@ -27,6 +27,7 @@ class BudgetInput extends Component {
         return(
             <div>
                 <input type="number" id="budgetInputForm" placeholder="Total amount..." value={this.state.inputValue} onChange={this.updateInputValue} onBlur={this.updateStateValue} />
+                <div id="inputsubtext">TOTAL AMOUNT</div>
             </div>
         );
     }

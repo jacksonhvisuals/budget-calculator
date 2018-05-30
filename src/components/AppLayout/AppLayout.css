@@ -1,0 +1,9 @@
+#background-color-header {
+    position: absolute;
+    width: 100%;
+    height: 253px;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    background: linear-gradient(170.54deg, #3D00E0 20.42%, rgba(83, 0, 232, 0.69) 80.88%);
+}
