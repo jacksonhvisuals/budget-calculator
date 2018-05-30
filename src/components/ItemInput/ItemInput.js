@@ -33,9 +33,13 @@ class ItemInput extends Component {
         return(
             <div>
                 <div id="item-card">
-                    <input type="text" id="itemTitle" placeholder={this.state.itemName} value={this.state.itemName} onChange={this.updateName} />
-                    <input type="number" id="itemPercentage" placeholder={this.state.itemPercentage} value={this.state.itemPercentage} onChange={this.updatePercentage} onBlur={this.updatePercentageBlur} />
-                    <span  id="itemTotal">${this.props.itemTotal}</span>
+                    <div class="left-half">
+                        <input type="text" id="itemTitle" placeholder={this.state.itemName} value={this.state.itemName} onChange={this.updateName} />
+                        <input type="number" id="itemPercentage" placeholder={this.state.itemPercentage} value={this.state.itemPercentage} onChange={this.updatePercentage} onBlur={this.updatePercentageBlur} />
+                    </div>
+                    <div class="right-half">
+                        <span  id="itemTotal">${this.props.itemTotal}</span>
+                    </div>  
                 </div>
             </div>
         );
