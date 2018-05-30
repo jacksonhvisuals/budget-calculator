@@ -2,8 +2,8 @@ input {
     width: auto;
     padding: 6px;
     border: none;
-    border-bottom: 1px solid grey;
     font-size: 18px;
+    font-family: sans-serif;
     background-color: transparent;
 }
 #budgetInputForm {

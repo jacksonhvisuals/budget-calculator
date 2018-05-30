@@ -1,8 +1,30 @@
 #itemTitle {
     display: block;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-size: 26px;
+
+    color: #4F4F4F;
+
 }
 #itemPercentage {
     display: block;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-size: 14px;
+
+    color: #828282;
+}
+
+#itemTotal {
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-size: 24px;
+
+    color: #27AE60;
 }
 #item-card {
     background-color: #fff;
