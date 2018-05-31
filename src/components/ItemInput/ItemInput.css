@@ -8,12 +8,23 @@
     color: #4F4F4F;
 
 }
-#itemPercentage {
+.itemPercentage {
     display: block;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     font-size: 14px;
+    float: left;
+    color: #828282;
+}
+.itemPercentage input {
+    display: inline-block;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-size: 14px;
+    width: 17px;
+    padding-right: 0px;
 
     color: #828282;
 }
