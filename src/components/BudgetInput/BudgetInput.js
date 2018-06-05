@@ -19,7 +19,6 @@ class BudgetInput extends Component {
 
     updateStateValue(evt) {
         this.setState({inputValue: evt.target.value});
-
         this.props.budgetConfirmHandler(this.state.inputValue);
     }
 

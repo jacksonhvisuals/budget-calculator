@@ -31,7 +31,10 @@ class AppLayout extends Component {
         this.itemChangeHandler = this.itemChangeHandler.bind(this);
         this.selectItem = this.selectItem.bind(this);
         this.addNewItem = this.addNewItem.bind(this);
+
         currentBudgetCollection = this.state.budgetItemCollection;
+
+        this.calculateAmounts();
 
     }
 
@@ -88,7 +91,7 @@ class AppLayout extends Component {
             <div>
                 <div id="background-color-header"></div>
                 <BudgetInput budgetConfirmHandler={this.setBudgetTotal} currentTotal={this.state.total}/>
-                <BudgetItemContainer budgetItemCollection={this.state.budgetItemCollection} itemChangeHandler={this.itemChangeHandler}/>
+                <BudgetItemContainer budgetItemCollection={this.state.budgetItemCollection} calculate={this.calculateAmounts} itemChangeHandler={this.itemChangeHandler}/>
                 <button onClick={this.addNewItem}>Add new item</button>
             </div>
         );

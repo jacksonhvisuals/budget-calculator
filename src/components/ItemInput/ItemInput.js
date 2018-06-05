@@ -22,6 +22,7 @@ class ItemInput extends Component {
     updatePercentageBlur(evt) {
         this.setState({itemPercentage: parseInt(evt.target.value, 10)});
         this.props.itemChangeHandler(this.props.itemId, this.state.itemName, this.state.itemPercentage);
+        this.props.calculate();
         console.log(parseInt(evt.target.value, 10));
     }
 

@@ -11,7 +11,7 @@ export default class BudgetItemContainer extends Component {
             {
               this.props.budgetItemCollection.map((item) => {
                 return(
-                  <ItemInput key={item.id} itemId={item.id} itemName={item.name} itemPercent={item.percent} itemTotal={item.total} itemChangeHandler={this.props.itemChangeHandler}/>
+                  <ItemInput key={item.id} itemId={item.id} itemName={item.name} itemPercent={item.percent} calculate={this.props.calculate} itemTotal={item.total} itemChangeHandler={this.props.itemChangeHandler}/>
                 )
               })
             }
