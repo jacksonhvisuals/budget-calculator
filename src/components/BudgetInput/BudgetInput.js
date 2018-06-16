@@ -24,11 +24,23 @@ class BudgetInput extends Component {
 
     render() {
         return(
-            <div><div className="headerContainer">
-                <input type="number" id="budgetInputForm" placeholder="Total amount..." value={this.state.inputValue} onChange={this.updateInputValue} onBlur={this.updateStateValue} />
+            <div>
+                <div className="headerContainer">
+                    <div class="input-icon">
+                        <b>$</b>
+                        <input 
+                            type="number" 
+                            id="budgetInputForm" 
+                            placeholder="Total amount..." 
+                            value={this.state.inputValue} 
+                            onChange={this.updateInputValue} 
+                            onBlur={this.updateStateValue} />
+                            <div class="input-icon">
+                    </div>
                 <div id="inputsubtext">TOTAL AMOUNT</div>
                 </div>
-            </div>
+                </div>
+                </div>
         );
     }
 
