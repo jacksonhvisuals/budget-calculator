@@ -1,4 +1,4 @@
-#itemTitle {
+.itemTitle {
     display: block;
     font-style: normal;
     font-weight: 500;
@@ -29,14 +29,16 @@
     color: #828282;
 }
 
-#itemTotal {
+.itemTotal {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     font-size: 24px;
     color: #27AE60;
+    margin-top: 30px;
 }
-#item-card {
+
+.item-card {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
@@ -44,7 +46,7 @@
     padding: 20px;
 
 }
-#item-card::after {
+.item-card::after {
     clear: both;
     display: block;
     height: 0;

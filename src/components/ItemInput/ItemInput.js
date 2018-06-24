@@ -30,16 +30,18 @@ class ItemInput extends Component {
         this.setState({itemPercentage: parseInt(evt.target.value, 10)});
     }
 
+
+
     render() {
         return(
             <div>
-                <div id="item-card">
+                <div className="item-card">
                     <div className="left-half">
-                        <input type="text" id="itemTitle" placeholder={this.state.itemName} value={this.state.itemName} onChange={this.updateName} />
-                        <div className="itemPercentage"><input type="number" id="itemPercentage" placeholder={this.state.itemPercentage} value={this.state.itemPercentage} onChange={this.updatePercentage} onBlur={this.updatePercentageBlur} />%</div>
+                        <input type="text" className="itemTitle" placeholder={this.state.itemName} value={this.state.itemName} onChange={this.updateName} />
+                        <div className="itemPercentage"><input type="number" className="itemPercentage" placeholder={this.state.itemPercentage} value={this.state.itemPercentage} onChange={this.updatePercentage} onBlur={this.updatePercentageBlur} />%</div>
                     </div>
                     <div className="right-half">
-                        <span  id="itemTotal">${this.props.itemTotal}</span>
+                        <span id={"itemTotal" + this.props.itemId} className="itemTotal" onClick={this.props.itemClickHandler(this.props.itemId)}>${this.props.itemTotal}</span>
                     </div>  
                 </div>
             </div>

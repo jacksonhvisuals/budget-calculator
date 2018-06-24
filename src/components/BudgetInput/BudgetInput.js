@@ -26,8 +26,8 @@ class BudgetInput extends Component {
         return(
             <div>
                 <div className="headerContainer">
-                    <div class="input-icon">
-                        <b>$</b>
+                    <div class="text-center">
+                        <div id="input-icon">$</div>
                         <input 
                             type="number" 
                             id="budgetInputForm" 
@@ -35,10 +35,9 @@ class BudgetInput extends Component {
                             value={this.state.inputValue} 
                             onChange={this.updateInputValue} 
                             onBlur={this.updateStateValue} />
-                            <div class="input-icon">
-                    </div>
-                <div id="inputsubtext">TOTAL AMOUNT</div>
                 </div>
+                <div id="inputsubtext">TOTAL AMOUNT</div>
+
                 </div>
                 </div>
         );
