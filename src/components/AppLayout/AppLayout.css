@@ -16,10 +16,17 @@
     border-radius: 20px; 
     font-size: 50px; 
     font-weight: 100;
-    color: #090909;
+    color: rgb(110, 110, 110);
     line-height: 50px;
-    padding-bottom: 10px; 
+    padding-bottom: 12px; 
+    border-style: dashed;
+    border-color: rgb(110, 110, 110);
 }
+
 #createNewButton:focus {
     outline: 0;
+}
+#createNewButton:hover {
+    background-color: #f9f9f9f9;
+    transition-duration: 0.2s;
 }

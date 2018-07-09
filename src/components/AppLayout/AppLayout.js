@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BudgetInput from '../BudgetInput/BudgetInput';
-import BudgetItemContainer from '../BudgetItemContainer/BudgetItemContainer';
+import ItemCardContainer from '../ItemCardContainer/ItemCardContainer';
 import './AppLayout.css';
 var currentBudgetCollection;
 
@@ -94,7 +94,7 @@ class AppLayout extends Component {
             <div>
                 <div id="background-color-header"></div>
                 <BudgetInput budgetConfirmHandler={this.setBudgetTotal} currentTotal={this.state.total}/>
-                <BudgetItemContainer budgetItemCollection={this.state.budgetItemCollection} copyTotal={this.copyTotal} calculate={this.calculateAmounts} itemChangeHandler={this.itemChangeHandler}/>
+                <ItemCardContainer budgetItemCollection={this.state.budgetItemCollection} copyTotal={this.copyTotal} calculate={this.calculateAmounts} itemChangeHandler={this.itemChangeHandler}/>
                 <button id="createNewButton" onClick={this.addNewItem}>+</button>
             </div>
         );
