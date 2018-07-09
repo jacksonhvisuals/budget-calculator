@@ -1,11 +1,9 @@
 input {
     min-width: 10px;
-    padding: 6px;
     border: none;
     font-family: sans-serif;
     background-color: transparent;
     font-size: 56px;
-    margin-top: 40px;
     color: #fff;
 }
 
