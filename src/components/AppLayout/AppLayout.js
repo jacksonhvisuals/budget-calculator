@@ -79,7 +79,7 @@ class AppLayout extends Component {
         let newItem = {
             name: "Item Title Here",
             id: newid,
-            percent: 0,
+            percent: 10,
             total: "",  
           };
           currentBudgetCollection.push(newItem);
