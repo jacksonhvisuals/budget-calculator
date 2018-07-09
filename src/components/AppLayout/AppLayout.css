@@ -7,3 +7,19 @@
     z-index: -1;
     background: linear-gradient(170.54deg, #3D00E0 20.42%, rgba(83, 0, 232, 0.69) 80.88%);
 }
+#createNewButton {
+    margin-top: 35px; 
+    width: 79px;
+    height: 59px;
+    left: 595px;
+    top: 439px;
+    border-radius: 20px; 
+    font-size: 50px; 
+    font-weight: 100;
+    color: #090909;
+    line-height: 50px;
+    padding-bottom: 10px; 
+}
+#createNewButton:focus {
+    outline: 0;
+}

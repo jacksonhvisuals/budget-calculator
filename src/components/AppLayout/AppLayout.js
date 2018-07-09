@@ -77,7 +77,7 @@ class AppLayout extends Component {
     addNewItem() {
         let newid = Math.floor(Math.random() * (1876251987 - 51987) + 51987);
         let newItem = {
-            name: "",
+            name: "Item Title Here",
             id: newid,
             percent: 0,
             total: "",  
@@ -95,7 +95,7 @@ class AppLayout extends Component {
                 <div id="background-color-header"></div>
                 <BudgetInput budgetConfirmHandler={this.setBudgetTotal} currentTotal={this.state.total}/>
                 <BudgetItemContainer budgetItemCollection={this.state.budgetItemCollection} copyTotal={this.copyTotal} calculate={this.calculateAmounts} itemChangeHandler={this.itemChangeHandler}/>
-                <button onClick={this.addNewItem}>Add new item</button>
+                <button id="createNewButton" onClick={this.addNewItem}>+</button>
             </div>
         );
     }
