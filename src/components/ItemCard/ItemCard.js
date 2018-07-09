@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './ItemInput.css';
+import './ItemCard.css';
 
-class ItemInput extends Component {
+class ItemCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -49,4 +49,4 @@ class ItemInput extends Component {
     }
 
 }
-export default ItemInput;
+export default ItemCard;

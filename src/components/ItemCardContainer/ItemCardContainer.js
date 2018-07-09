@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './BudgetItemContainer.css';
-import ItemInput from '../ItemInput/ItemInput';
+import './ItemCardContainer.css';
+import ItemCard from '../ItemCard/ItemCard';
 
-export default class BudgetItemContainer extends Component {
+export default class ItemCardContainer extends Component {
 
     render(props) {
       if (this.props.budgetItemCollection) {
@@ -11,7 +11,7 @@ export default class BudgetItemContainer extends Component {
             {
               this.props.budgetItemCollection.map((item) => {
                 return(
-                  <ItemInput key={item.id} itemId={item.id} itemName={item.name} itemPercent={item.percent} calculate={this.props.calculate} itemTotal={item.total} itemClickHandler={this.props.copyTotal} itemChangeHandler={this.props.itemChangeHandler}/>
+                  <ItemCard key={item.id} itemId={item.id} itemName={item.name} itemPercent={item.percent} calculate={this.props.calculate} itemTotal={item.total} itemClickHandler={this.props.copyTotal} itemChangeHandler={this.props.itemChangeHandler}/>
                 )
               })
             }
