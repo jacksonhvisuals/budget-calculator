@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
 import './ItemCard.css';
 
+var specialStyles;
 class ItemCard extends Component {
+
+    
     constructor(props) {
         super(props);
         this.state = {
             itemName: this.props.itemName,
             itemPercentage: this.props.itemPercent,
+            inputwidth: "2ch",
         };
         this.updateName = this.updateName.bind(this);
         this.updatePercentage = this.updatePercentage.bind(this);
         this.updatePercentageBlur = this.updatePercentageBlur.bind(this);
-        this.resizeInput = this.resizeInput.bind(this);
-
+        specialStyles = {
+            width: this.state.inputwidth
+        };
     }
 
     updateName(evt) {
         this.setState({itemName: evt.target.value});
+ 
         this.props.itemChangeHandler(this.props.itemId, this.state.itemName, this.state.itemPercentage);
     }
     
@@ -24,18 +30,20 @@ class ItemCard extends Component {
         this.setState({itemPercentage: parseInt(evt.target.value, 10)});
         this.props.itemChangeHandler(this.props.itemId, this.state.itemName, this.state.itemPercentage);
         this.props.calculate();
-        console.log(parseInt(evt.target.value, 10));
+        let targetvalue = parseInt(evt.target.value, 10);
+        let newWidth = targetvalue.toString().length + "ch";
+        this.setState({inputwidth: newWidth});
+        specialStyles = {width: newWidth};
+
     }
 
     updatePercentage(evt) {
         this.setState({itemPercentage: parseInt(evt.target.value, 10)});
-        this.resizeInput();
     }
 
-    resizeInput() {
-        var inputfella = document.getElementById("percentageInput");
-        inputfella.width = this.state.itemPercentage.length + "ch";
-        console.log("Updated width of " + inputfella + " to " + this.state.itemPercentage.length);
+    componentDidMount() {
+        var inputwidth = document.getElementById("percentageInput");
+        this.setState({inputwidth: inputwidth.width});
     }
 
     render() {
@@ -52,7 +60,8 @@ class ItemCard extends Component {
                             placeholder={this.state.itemPercentage} 
                             value={this.state.itemPercentage} 
                             onChange={this.updatePercentage} 
-                            onBlur={this.updatePercentageBlur} />
+                            onBlur={this.updatePercentageBlur} 
+                            style={specialStyles} />
                             %
                         </div>
                     </div>
