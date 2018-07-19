@@ -30,3 +30,11 @@
     background-color: #f9f9f9f9;
     transition-duration: 0.2s;
 }
+input {
+    min-width: 10px;
+    border: none;
+    font-family: sans-serif;
+    background-color: transparent;
+    font-size: 56px;
+    color: #fff;
+}

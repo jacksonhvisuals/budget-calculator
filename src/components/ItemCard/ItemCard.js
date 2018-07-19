@@ -11,6 +11,7 @@ class ItemCard extends Component {
         this.updateName = this.updateName.bind(this);
         this.updatePercentage = this.updatePercentage.bind(this);
         this.updatePercentageBlur = this.updatePercentageBlur.bind(this);
+        this.resizeInput = this.resizeInput.bind(this);
 
     }
 
@@ -28,9 +29,14 @@ class ItemCard extends Component {
 
     updatePercentage(evt) {
         this.setState({itemPercentage: parseInt(evt.target.value, 10)});
+        this.resizeInput();
     }
 
-
+    resizeInput() {
+        var inputfella = document.getElementById("percentageInput");
+        inputfella.width = this.state.itemPercentage.length + "ch";
+        console.log("Updated width of " + inputfella + " to " + this.state.itemPercentage.length);
+    }
 
     render() {
         return(
@@ -38,7 +44,17 @@ class ItemCard extends Component {
                 <div className="item-card">
                     <div className="left-half">
                         <input type="text" className="itemTitle" placeholder={this.state.itemName} value={this.state.itemName} onChange={this.updateName} />
-                        <div className="itemPercentage"><input type="number" className="itemPercentage" placeholder={this.state.itemPercentage} value={this.state.itemPercentage} onChange={this.updatePercentage} onBlur={this.updatePercentageBlur} />%</div>
+                        <div className="itemPercentage">
+                            <input 
+                            id="percentageInput" 
+                            type="number" 
+                            className="itemPercentage" 
+                            placeholder={this.state.itemPercentage} 
+                            value={this.state.itemPercentage} 
+                            onChange={this.updatePercentage} 
+                            onBlur={this.updatePercentageBlur} />
+                            %
+                        </div>
                     </div>
                     <div className="right-half">
                         <span id={"itemTotal" + this.props.itemId} className="itemTotal" onClick={this.props.itemClickHandler(this.props.itemId)}>${this.props.itemTotal}</span>

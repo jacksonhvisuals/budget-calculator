@@ -1,15 +1,15 @@
-input {
+#budgetInputForm {
     min-width: 10px;
     border: none;
     font-family: sans-serif;
     background-color: transparent;
     font-size: 56px;
     color: #fff;
+    width: 4ch;
 }
 
 .headerContainer {
     display: block;
-    width:900px;
     margin: auto;
     text-align:center;
 

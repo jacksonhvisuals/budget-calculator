@@ -4,3 +4,15 @@
     width: 40%;
     margin-top: 35px;
 }
+
+@media screen and (max-width: 1000px) {
+    .list-container {
+        width: 60%;
+    }
+}
+
+@media screen  and (max-width: 600px) {
+    .list-container {
+        width: 80%;
+    }
+}

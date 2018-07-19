@@ -86,6 +86,7 @@ class AppLayout extends Component {
           this.setState({budgetItemCollection: currentBudgetCollection});     
     }
 
+    // Automatically copy total to clipboard.
     copyTotal(item) {
     }
 
