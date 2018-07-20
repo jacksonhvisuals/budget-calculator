@@ -3,7 +3,6 @@ import './ItemCardContainer.css';
 import ItemCard from '../ItemCard/ItemCard';
 
 export default class ItemCardContainer extends Component {
-
     render(props) {
       if (this.props.budgetItemCollection) {
         return(
