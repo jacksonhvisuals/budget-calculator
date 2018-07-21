@@ -39,7 +39,6 @@ class ItemCard extends Component {
     componentDidMount() {
         let inputwidth = document.getElementById("input-" + this.props.itemId);
         let startingWidth = inputwidth.value.length + "ch";
-        console.log("Starting width: " + startingWidth);
         inputwidth.style.width = startingWidth;
     }
 

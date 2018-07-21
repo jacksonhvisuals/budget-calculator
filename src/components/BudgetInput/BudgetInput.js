@@ -19,18 +19,16 @@ class BudgetInput extends Component {
         let newWidth = targetvalue.toString().length + "ch";
         let inputwidth = document.getElementById("budgetInputForm");
         inputwidth.style.width = newWidth;
-        console.log("NewWidth: " + newWidth);
     }
 
     updateStateValue(evt) {
         this.setState({inputValue: evt.target.value});
         this.props.budgetConfirmHandler(this.state.inputValue);
     }
-    
+
     componentDidMount() {
         let inputwidth = document.getElementById("budgetInputForm");
         let startingWidth = inputwidth.value.length + "ch";
-        console.log("Starting width: " + startingWidth);
         inputwidth.style.width = startingWidth;
     }
 
@@ -38,7 +36,7 @@ class BudgetInput extends Component {
         return(
             <div>
                 <div className="headerContainer">
-                    <div class="text-center">
+                    <div className="text-center">
                         <div id="input-icon">$</div>
                         <input 
                             type="number" 

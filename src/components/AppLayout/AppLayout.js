@@ -46,7 +46,6 @@ class AppLayout extends Component {
             currentBudgetCollection[key]["total"] = calculation;
         });
         this.setState({budgetItemCollection: currentBudgetCollection});
-        console.log(currentBudgetCollection);
     }
 
     selectItem(itemid) {
