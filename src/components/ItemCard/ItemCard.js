@@ -4,25 +4,20 @@ import './ItemCard.css';
 var specialStyles;
 class ItemCard extends Component {
 
-    
     constructor(props) {
         super(props);
         this.state = {
             itemName: this.props.itemName,
             itemPercentage: this.props.itemPercent,
-            inputwidth: "2ch",
         };
         this.updateName = this.updateName.bind(this);
         this.updatePercentage = this.updatePercentage.bind(this);
         this.updatePercentageBlur = this.updatePercentageBlur.bind(this);
-        specialStyles = {
-            width: this.state.inputwidth
-        };
+
     }
 
     updateName(evt) {
         this.setState({itemName: evt.target.value});
- 
         this.props.itemChangeHandler(this.props.itemId, this.state.itemName, this.state.itemPercentage);
     }
     
@@ -30,31 +25,33 @@ class ItemCard extends Component {
         this.setState({itemPercentage: parseInt(evt.target.value, 10)});
         this.props.itemChangeHandler(this.props.itemId, this.state.itemName, this.state.itemPercentage);
         this.props.calculate();
-        let targetvalue = parseInt(evt.target.value, 10);
-        let newWidth = targetvalue.toString().length + "ch";
-        this.setState({inputwidth: newWidth});
-        specialStyles = {width: newWidth};
-
     }
 
     updatePercentage(evt) {
         this.setState({itemPercentage: parseInt(evt.target.value, 10)});
+        let targetvalue = parseInt(evt.target.value, 10);
+        let newWidth = targetvalue.toString().length + "ch";
+        let inputwidth = document.getElementById("input-" + this.props.itemId);
+        inputwidth.style.width = newWidth;
+        console.log("NewWidth: " + newWidth);
     }
 
     componentDidMount() {
-        var inputwidth = document.getElementById("percentageInput");
-        this.setState({inputwidth: inputwidth.width});
+        let inputwidth = document.getElementById("input-" + this.props.itemId);
+        let startingWidth = inputwidth.value.length + "ch";
+        console.log("Starting width: " + startingWidth);
+        inputwidth.style.width = startingWidth;
     }
 
     render() {
         return(
             <div>
-                <div className="item-card">
+                <div className="item-card" id={this.props.itemId}>
                     <div className="left-half">
                         <input type="text" className="itemTitle" placeholder={this.state.itemName} value={this.state.itemName} onChange={this.updateName} />
                         <div className="itemPercentage">
                             <input 
-                            id="percentageInput" 
+                            id={"input-" + this.props.itemId} 
                             type="number" 
                             className="itemPercentage" 
                             placeholder={this.state.itemPercentage} 

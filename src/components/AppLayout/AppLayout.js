@@ -8,7 +8,7 @@ class AppLayout extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            total: 1420,
+            total: 420,
             budgetItemCollection: [
             {
               name: "Savings",
