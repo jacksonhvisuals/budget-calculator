@@ -15,11 +15,23 @@ class BudgetInput extends Component {
         this.setState({inputValue: evt.target.value});
         // this.props.budgetConfirmHandler(this.state.inputValue);
         console.log(this.state.inputValue);
+        let targetvalue = parseInt(evt.target.value, 10);
+        let newWidth = targetvalue.toString().length + "ch";
+        let inputwidth = document.getElementById("budgetInputForm");
+        inputwidth.style.width = newWidth;
+        console.log("NewWidth: " + newWidth);
     }
 
     updateStateValue(evt) {
         this.setState({inputValue: evt.target.value});
         this.props.budgetConfirmHandler(this.state.inputValue);
+    }
+    
+    componentDidMount() {
+        let inputwidth = document.getElementById("budgetInputForm");
+        let startingWidth = inputwidth.value.length + "ch";
+        console.log("Starting width: " + startingWidth);
+        inputwidth.style.width = startingWidth;
     }
 
     render() {
