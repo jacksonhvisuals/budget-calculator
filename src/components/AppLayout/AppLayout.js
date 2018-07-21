@@ -9,7 +9,6 @@ class AppLayout extends Component {
     constructor(props) {
         super(props);
 
-
         if (budgetcollection.getItem("budgetItemCollection") != null) {
             this.state = {
                 total: 420,

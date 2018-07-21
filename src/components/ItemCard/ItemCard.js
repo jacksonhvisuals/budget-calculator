@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ClipboardJS from 'clipboard';
 import './ItemCard.css';
 
-var specialStyles;
 class ItemCard extends Component {
 
     constructor(props) {
@@ -21,6 +20,10 @@ class ItemCard extends Component {
     updateName(evt) {
         this.setState({itemName: evt.target.value});
         this.props.itemChangeHandler(this.props.itemId, this.state.itemName, this.state.itemPercentage);
+        let newWidth = evt.target.value.length + "ch";
+        let inputwidth = document.getElementById("title-" + this.props.itemId);
+        inputwidth.style.width = newWidth;
+        console.log("NewWidth: " + newWidth);
     }
     
     updatePercentageBlur(evt) {
@@ -35,15 +38,18 @@ class ItemCard extends Component {
         let newWidth = targetvalue.toString().length + "ch";
         let inputwidth = document.getElementById("input-" + this.props.itemId);
         inputwidth.style.width = newWidth;
-        console.log("NewWidth: " + newWidth);
         this.props.itemChangeHandler(this.props.itemId, this.state.itemName, this.state.itemPercentage);
         this.props.calculate();
     }
 
     componentDidMount() {
-        let inputwidth = document.getElementById("input-" + this.props.itemId);
-        let startingWidth = inputwidth.value.length + "ch";
-        inputwidth.style.width = startingWidth;
+        let percentwidth = document.getElementById("input-" + this.props.itemId);
+        let startingWidth = percentwidth.value.length + "ch";
+        percentwidth.style.width = startingWidth;
+
+        let titlewidth = document.getElementById("title-" + this.props.itemId);
+        let titlestartingWidth = titlewidth.value.length + "ch";
+        titlewidth.style.width = titlestartingWidth;
     }
 
     render() {
@@ -60,8 +66,7 @@ class ItemCard extends Component {
                             placeholder={this.state.itemPercentage} 
                             value={this.state.itemPercentage} 
                             onChange={this.updatePercentage} 
-                            onBlur={this.updatePercentageBlur} 
-                            style={specialStyles} />
+                            onBlur={this.updatePercentageBlur} />
                             %
                         </div>
                     </div>

@@ -11,8 +11,13 @@
     }
 }
 
-@media screen  and (max-width: 600px) {
+@media screen  and (max-width: 645px) {
     .list-container {
         width: 80%;
+    }
+}
+@media screen  and (max-width: 450px) {
+    .list-container {
+        width: 90%;
     }
 }
