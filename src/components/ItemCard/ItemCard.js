@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ClipboardJS from 'clipboard';
 import './ItemCard.css';
 
 var specialStyles;
@@ -13,6 +14,7 @@ class ItemCard extends Component {
         this.updateName = this.updateName.bind(this);
         this.updatePercentage = this.updatePercentage.bind(this);
         this.updatePercentageBlur = this.updatePercentageBlur.bind(this);
+        new ClipboardJS(".clipbtn");
 
     }
 
@@ -64,7 +66,7 @@ class ItemCard extends Component {
                         </div>
                     </div>
                     <div className="right-half">
-                        <span id={"itemTotal" + this.props.itemId} className="itemTotal" onClick={this.props.itemClickHandler(this.props.itemId)}>${this.props.itemTotal}</span>
+                        <span id={"itemTotal" + this.props.itemId} className="itemTotal clipbtn" onClick={this.props.itemClickHandler(this.props.itemId)} data-clipboard-action="copy" data-clipboard-target={"#itemTotal" + this.props.itemId}>${this.props.itemTotal}</span>
                     </div>  
                 </div>
             </div>
