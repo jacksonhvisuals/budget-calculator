@@ -51,7 +51,7 @@ class ItemCard extends Component {
             <div>
                 <div className="item-card" id={this.props.itemId}>
                     <div className="left-half">
-                        <input type="text" className="itemTitle" placeholder={this.state.itemName} value={this.state.itemName} onChange={this.updateName} />
+                        <input type="text" className="itemTitle" id={"title-" + this.props.itemId} placeholder={this.state.itemName} value={this.state.itemName} onChange={this.updateName} />
                         <div className="itemPercentage">
                             <input 
                             id={"input-" + this.props.itemId} 

@@ -3,28 +3,24 @@ import BudgetInput from '../BudgetInput/BudgetInput';
 import ItemCardContainer from '../ItemCardContainer/ItemCardContainer';
 import './AppLayout.css';
 var currentBudgetCollection;
+var budgetcollection = window.localStorage;
 
 class AppLayout extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            total: 420,
-            budgetItemCollection: [
-            {
-              name: "Savings",
-              id: Math.floor(Math.random() * (1876251987 - 51987) + 51987),
-              percent: 20,
-              total: "",  
-            },
-            {
-                name: "Food",
-                id: Math.floor(Math.random() * (1876251987 - 51987) + 51987),
-                percent: 14,
-                total: "",  
-              },
-        
-            ],
-        };
+
+
+        if (budgetcollection.getItem("budgetItemCollection") != null) {
+            this.state = {
+                total: 420,
+                budgetItemCollection: JSON.parse(budgetcollection.getItem("budgetItemCollection")),
+            };
+        } else {
+            this.state = {
+                total: 420,
+                budgetItemCollection: [],
+            };
+        }
 
         this.calculateAmounts = this.calculateAmounts.bind(this);
         this.setBudgetTotal = this.setBudgetTotal.bind(this);
@@ -33,9 +29,8 @@ class AppLayout extends Component {
         this.addNewItem = this.addNewItem.bind(this);
         this.copyTotal = this.copyTotal.bind(this);
         currentBudgetCollection = this.state.budgetItemCollection;
-
         this.calculateAmounts();
-
+        console.log(JSON.parse(budgetcollection.getItem("budgetItemCollection")));
     }
 
     calculateAmounts() {
@@ -46,6 +41,8 @@ class AppLayout extends Component {
             currentBudgetCollection[key]["total"] = calculation;
         });
         this.setState({budgetItemCollection: currentBudgetCollection});
+        budgetcollection.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
+
     }
 
     selectItem(itemid) {
@@ -64,6 +61,7 @@ class AppLayout extends Component {
         currentBudgetCollection[this.selectItem(itemId)]["name"] = itemName;
         currentBudgetCollection[this.selectItem(itemId)]["percent"] = itemPercent;
         this.setState({budgetItemCollection: currentBudgetCollection});
+        budgetcollection.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
     }
 
     setBudgetTotal(amount) {
@@ -81,8 +79,9 @@ class AppLayout extends Component {
             percent: 10,
             total: "",  
           };
-          currentBudgetCollection.push(newItem);
-          this.setState({budgetItemCollection: currentBudgetCollection});     
+        currentBudgetCollection.push(newItem);
+        this.setState({budgetItemCollection: currentBudgetCollection});
+        budgetcollection.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
     }
 
     // Automatically copy total to clipboard.
