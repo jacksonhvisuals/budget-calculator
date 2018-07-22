@@ -1,23 +1,23 @@
 .list-container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-    margin-top: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  margin-top: 35px;
 }
 
 @media screen and (max-width: 1000px) {
-    .list-container {
-        width: 60%;
-    }
+  .list-container {
+    width: 60%;
+  }
 }
 
-@media screen  and (max-width: 645px) {
-    .list-container {
-        width: 80%;
-    }
+@media screen and (max-width: 645px) {
+  .list-container {
+    width: 80%;
+  }
 }
-@media screen  and (max-width: 450px) {
-    .list-container {
-        width: 90%;
-    }
+@media screen and (max-width: 450px) {
+  .list-container {
+    width: 90%;
+  }
 }

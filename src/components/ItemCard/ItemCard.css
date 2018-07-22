@@ -1,55 +1,59 @@
 .itemTitle {
-    display: block;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    font-size: 26px;
-    color: #4F4F4F;
-    margin-top: 10px;
-
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 26px;
+  color: #4f4f4f;
+  margin-top: 10px;
 }
 .itemPercentage {
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    font-size: 14px;
-    float: left;
-    color: #828282;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 14px;
+  float: left;
+  color: #828282;
 }
 .itemPercentage input {
-    display: inline-block;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    font-size: 14px;
-    padding-right: 0px;
-    color: #828282;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 14px;
+  padding-right: 0px;
+  color: #828282;
 }
 
 .itemTotal {
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    font-size: 24px;
-    color: #27AE60;
-    margin-top: 30px;
-    cursor: pointer;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 24px;
+  color: #27ae60;
+  margin-top: 30px;
+  cursor: pointer;
 }
 
 .item-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
-    margin-top: 10px;
-    padding: 20px;
-
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+  margin-top: 10px;
+  padding: 20px;
 }
 .item-card::after {
-    clear: both;
-    display: block;
-    height: 0;
-    content: " ";
+  clear: both;
+  display: block;
+  height: 0;
+  content: " ";
 }
 
-.left-half {float: left;padding-top: 10px;}
-.right-half {float: right;line-height: 90px;}
+.left-half {
+  float: left;
+  padding-top: 10px;
+}
+.right-half {
+  float: right;
+  line-height: 90px;
+}
