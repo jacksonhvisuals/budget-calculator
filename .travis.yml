@@ -13,4 +13,4 @@ deploy:
   github_token: $githubToken
   local_dir: build
   on:
-    branch: master
+    tags: true
