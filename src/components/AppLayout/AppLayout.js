@@ -3,20 +3,20 @@ import BudgetInput from '../BudgetInput/BudgetInput';
 import ItemCardContainer from '../ItemCardContainer/ItemCardContainer';
 import './AppLayout.css';
 var currentBudgetCollection;
-var budgetcollection = window.localStorage;
+var offlineData = window.localStorage;
 
 class AppLayout extends Component {
     constructor(props) {
         super(props);
 
-        if (budgetcollection.getItem("budgetItemCollection") != null) {
+        if (offlineData.getItem("budgetItemCollection") != null) {
             this.state = {
-                total: 420,
-                budgetItemCollection: JSON.parse(budgetcollection.getItem("budgetItemCollection")),
+                total: JSON.parse(offlineData.getItem("budget")),
+                budgetItemCollection: JSON.parse(offlineData.getItem("budgetItemCollection")),
             };
         } else {
             this.state = {
-                total: 420,
+                total: 0,
                 budgetItemCollection: [],
             };
         }
@@ -29,7 +29,7 @@ class AppLayout extends Component {
         this.copyTotal = this.copyTotal.bind(this);
         currentBudgetCollection = this.state.budgetItemCollection;
         this.calculateAmounts();
-        console.log(JSON.parse(budgetcollection.getItem("budgetItemCollection")));
+        console.log(JSON.parse(offlineData.getItem("budgetItemCollection")));
     }
 
     calculateAmounts() {
@@ -51,7 +51,7 @@ class AppLayout extends Component {
         console.log(remainderMessage);
 
         this.setState({budgetItemCollection: currentBudgetCollection});
-        budgetcollection.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
+        offlineData.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
 
     }
 
@@ -71,13 +71,13 @@ class AppLayout extends Component {
         currentBudgetCollection[this.selectItem(itemId)]["name"] = itemName;
         currentBudgetCollection[this.selectItem(itemId)]["percent"] = itemPercent;
         this.setState({budgetItemCollection: currentBudgetCollection});
-        budgetcollection.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
+        offlineData.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
     }
 
     setBudgetTotal(amount) {
-        this.setState({
-            total: amount
-        });
+        this.setState({total: amount});
+        offlineData.setItem("budget", JSON.stringify(amount));
+
         this.calculateAmounts();
     }
 
@@ -91,7 +91,7 @@ class AppLayout extends Component {
           };
         currentBudgetCollection.push(newItem);
         this.setState({budgetItemCollection: currentBudgetCollection});
-        budgetcollection.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
+        offlineData.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
     }
 
     // Automatically copy total to clipboard.
@@ -102,7 +102,7 @@ class AppLayout extends Component {
         return(
             <div>
                 <div id="background-color-header"></div>
-                <BudgetInput budgetConfirmHandler={this.setBudgetTotal} currentTotal={this.state.total}/>
+                <BudgetInput budgetConfirmHandler={this.setBudgetTotal} currentTotal={this.state.total} calculate={this.calculateAmounts}/>
                 <ItemCardContainer budgetItemCollection={this.state.budgetItemCollection} copyTotal={this.copyTotal} calculate={this.calculateAmounts} itemChangeHandler={this.itemChangeHandler}/>
                 <div id="">
                     {}

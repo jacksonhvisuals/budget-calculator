@@ -22,7 +22,7 @@ class ItemCard extends Component {
         this.props.itemChangeHandler(this.props.itemId, this.state.itemName, this.state.itemPercentage);
         let newWidth = evt.target.value.length + "ch";
         let inputwidth = document.getElementById("title-" + this.props.itemId);
-        inputwidth.style.width = newWidth;
+        inputwidth.style.width = "calc(" + newWidth + " + 10px)";
         console.log("NewWidth: " + newWidth);
     }
     
@@ -49,7 +49,7 @@ class ItemCard extends Component {
 
         let titlewidth = document.getElementById("title-" + this.props.itemId);
         let titlestartingWidth = titlewidth.value.length + "ch";
-        titlewidth.style.width = titlestartingWidth;
+        titlewidth.style.width = "calc(" + titlestartingWidth + " + 10px)";
     }
 
     render() {

@@ -13,8 +13,6 @@ class BudgetInput extends Component {
 
     updateInputValue(evt) {
         this.setState({inputValue: evt.target.value});
-        // this.props.budgetConfirmHandler(this.state.inputValue);
-        console.log(this.state.inputValue);
         let targetvalue = parseFloat(evt.target.value, 10);
         console.log("The length of the Budget Input is: " + targetvalue.toString().length);
         let newWidth = targetvalue.toString().length + "ch";
@@ -25,6 +23,8 @@ class BudgetInput extends Component {
     updateStateValue(evt) {
         this.setState({inputValue: evt.target.value});
         this.props.budgetConfirmHandler(this.state.inputValue);
+        this.props.calculate();
+        console.log(this.state.inputValue);
     }
 
     componentDidMount() {
