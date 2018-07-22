@@ -48,7 +48,12 @@ input {
   color: #fff;
 }
 
-#remainderCalculation {
+#remainderCalculation-OVERUSED {
+  font-size: 30px;
+  color: #e32a2a;
+  display: inline-block;
+}
+#remainderCalculation-REMAINING {
   font-size: 30px;
   color: #4f4f4f;
   display: inline-block;

@@ -53,14 +53,27 @@ class AppLayout extends Component {
     remainderCalculation = budgetTotal - currentlyUsed;
     if (remainderCalculation > 0) {
       remainderCalculation = remainderCalculation.toFixed(2);
-      remainderMessage = " REMAINING";
+      remainderMessage = "REMAINING";
+      remainderPercentage = Math.round(
+        (remainderCalculation / budgetTotal) * 100
+      );
+      remainderPercentage = "(" + remainderPercentage + "%)";
     } else if (remainderCalculation < 0) {
-      remainderCalculation = remainderCalculation.toFixed(2) * -1;
-      remainderMessage = " OVERUSED";
+      remainderPercentage = Math.round(
+        (remainderCalculation / budgetTotal) * 100
+      );
+      remainderPercentage = "(" + remainderPercentage + "%)";
+
+      remainderCalculation = "-$" + remainderCalculation.toFixed(2) * -1;
+      remainderMessage = "OVERUSED";
+    } else if (remainderCalculation === 0) {
+      remainderPercentage = Math.round(
+        (remainderCalculation / budgetTotal) * 100
+      );
+      remainderPercentage = "";
+      remainderCalculation = "$" + remainderCalculation;
+      remainderMessage = "REMAINING";
     }
-    remainderPercentage = Math.round(
-      (remainderCalculation / budgetTotal) * 100
-    );
 
     this.setState({ budgetItemCollection: currentBudgetCollection });
     offlineData.setItem(
@@ -141,10 +154,11 @@ class AppLayout extends Component {
         />
         <div className="lower-container">
           <div id="calculationContainer">
-            <div id="remainderCalculation">${remainderCalculation}</div>
+            <div id={"remainderCalculation-" + remainderMessage}>
+              {remainderCalculation}
+            </div>
             <div id="remainderMessage">
-              {" "}
-              ({remainderPercentage}%) {remainderMessage}
+              {remainderPercentage} {remainderMessage}
             </div>
 
             <button id="createNewButton" onClick={this.addNewItem}>
