@@ -1,5 +1,5 @@
 {
-  "name": "budget-calculator",
+  "name": "simplicity",
   "homepage": "https://jacksonhayes.xyz/simplicity",
   "version": "0.1.0",
   "private": true,
@@ -17,8 +17,8 @@
     "precommit": "pretty-quick --staged"
   },
   "guppy": {
-    "id": "budget-calculator",
-    "name": "budget-calculator",
+    "id": "simplicity",
+    "name": "simplicity",
     "type": "create-react-app",
     "color": "#cc004a",
     "icon": null,
