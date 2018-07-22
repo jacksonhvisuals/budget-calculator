@@ -139,14 +139,18 @@ class AppLayout extends Component {
           calculate={this.calculateAmounts}
           itemChangeHandler={this.itemChangeHandler}
         />
-        <div id="">
-          <div id="remainderCalculation">
-            ${remainderCalculation} ({remainderPercentage}%)
+        <div className="lower-container">
+          <div id="calculationContainer">
+            <div id="remainderCalculation">${remainderCalculation}</div>
+            <div id="remainderMessage">
+              {" "}
+              ({remainderPercentage}%) {remainderMessage}
+            </div>
+
+            <button id="createNewButton" onClick={this.addNewItem}>
+              +
+            </button>
           </div>
-          <div id="remainderMessage">{remainderMessage}</div>
-          <button id="createNewButton" onClick={this.addNewItem}>
-            +
-          </button>
         </div>
       </div>
     );

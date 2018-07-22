@@ -15,17 +15,19 @@
 #createNewButton {
   margin-top: 35px;
   width: 79px;
-  height: 59px;
+  height: 50px;
   left: 595px;
   top: 439px;
   border-radius: 20px;
-  font-size: 50px;
-  font-weight: 100;
+  font-size: 40px;
+  font-weight: 200;
   color: rgb(110, 110, 110);
-  line-height: 50px;
+  line-height: 40px;
   padding-bottom: 12px;
   border-style: dashed;
   border-color: rgb(110, 110, 110);
+  display: inline-block;
+  cursor: pointer;
 }
 
 #createNewButton:focus {
@@ -47,12 +49,44 @@ input {
 }
 
 #remainderCalculation {
-  font-size: 25px;
+  font-size: 30px;
   color: #4f4f4f;
+  display: inline-block;
 }
 
 #remainderMessage {
   font-size: 15px;
   font-weight: 200;
   color: #828282;
+  padding-left: 10px;
+  padding-right: 30px;
+  display: inline-block;
+}
+
+.lower-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  padding-bottom: 200px;
+}
+
+@media screen and (max-width: 1000px) {
+  .lower-container {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .lower-container {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .lower-container {
+    width: 90%;
+  }
+}
+
+#calculationContainer {
+  float: right;
 }
