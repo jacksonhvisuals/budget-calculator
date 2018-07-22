@@ -38,3 +38,8 @@ input {
     font-size: 56px;
     color: #fff;
 }
+
+#remainderCalculation {font-size: 25px;
+
+    color: #4F4F4F;}
+#remainderMessage {font-size: 15px; font-weight: 200; color: #828282;}

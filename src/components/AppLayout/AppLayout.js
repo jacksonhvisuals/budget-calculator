@@ -4,6 +4,9 @@ import ItemCardContainer from '../ItemCardContainer/ItemCardContainer';
 import './AppLayout.css';
 var currentBudgetCollection;
 var offlineData = window.localStorage;
+var remainderCalculation;
+var remainderMessage;
+var remainderPercentage;
 
 class AppLayout extends Component {
     constructor(props) {
@@ -35,20 +38,22 @@ class AppLayout extends Component {
     calculateAmounts() {
         let budgetTotal = this.state.total;
         let calculation;
-        let currentlyUsed
-        let remainderCalculation = 0;
+        let currentlyUsed = 0;
+        remainderCalculation = 0;
         Object.keys(currentBudgetCollection).forEach(function(key){
             calculation = (budgetTotal * (currentBudgetCollection[key]["percent"] / 100)).toFixed(2);
             currentBudgetCollection[key]["total"] = calculation;
-            remainderCalculation = remainderCalculation + parseFloat(calculation);
+            currentlyUsed = currentlyUsed + parseFloat(calculation);
         });
-        let remainderMessage;
+        remainderCalculation = budgetTotal - currentlyUsed;
         if (remainderCalculation > 0) {
-            remainderMessage = "$" + remainderCalculation + " remaining";
+            remainderCalculation = remainderCalculation.toFixed(2);
+            remainderMessage = " REMAINING";
         } else if (remainderCalculation < 0) {
-            remainderMessage = "-$" + remainderCalculation + " overused.";
+            remainderCalculation = remainderCalculation.toFixed(2) * -1;
+            remainderMessage = " OVERUSED";
         }
-        console.log(remainderMessage);
+        remainderPercentage = Math.round((remainderCalculation / budgetTotal) * 100);
 
         this.setState({budgetItemCollection: currentBudgetCollection});
         offlineData.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
@@ -105,7 +110,8 @@ class AppLayout extends Component {
                 <BudgetInput budgetConfirmHandler={this.setBudgetTotal} currentTotal={this.state.total} calculate={this.calculateAmounts}/>
                 <ItemCardContainer budgetItemCollection={this.state.budgetItemCollection} copyTotal={this.copyTotal} calculate={this.calculateAmounts} itemChangeHandler={this.itemChangeHandler}/>
                 <div id="">
-                    {}
+                    <div id="remainderCalculation">${remainderCalculation} ({remainderPercentage}%)</div>
+                    <div id="remainderMessage">{remainderMessage}</div>
                     <button id="createNewButton" onClick={this.addNewItem}>+</button>
                 </div>
             </div>
