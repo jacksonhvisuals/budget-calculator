@@ -73,7 +73,7 @@
 }
 
 .item-card:hover .right-half > .closeButton {
-  color: #828282;
+  color: #ffffff;
   transition-duration: 0.4s;
   transition-delay: 0.7s;
 }
