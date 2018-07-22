@@ -15,7 +15,8 @@ class BudgetInput extends Component {
         this.setState({inputValue: evt.target.value});
         // this.props.budgetConfirmHandler(this.state.inputValue);
         console.log(this.state.inputValue);
-        let targetvalue = parseInt(evt.target.value, 10);
+        let targetvalue = parseFloat(evt.target.value, 10);
+        console.log("The length of the Budget Input is: " + targetvalue.toString().length);
         let newWidth = targetvalue.toString().length + "ch";
         let inputwidth = document.getElementById("budgetInputForm");
         inputwidth.style.width = newWidth;
@@ -39,7 +40,8 @@ class BudgetInput extends Component {
                     <div className="text-center">
                         <div id="input-icon">$</div>
                         <input 
-                            type="number" 
+                            type="number"
+                            step="0.01"
                             id="budgetInputForm" 
                             placeholder="Total amount..." 
                             value={this.state.inputValue} 

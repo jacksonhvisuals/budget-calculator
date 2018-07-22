@@ -35,10 +35,21 @@ class AppLayout extends Component {
     calculateAmounts() {
         let budgetTotal = this.state.total;
         let calculation;
+        let currentlyUsed
+        let remainderCalculation = 0;
         Object.keys(currentBudgetCollection).forEach(function(key){
             calculation = (budgetTotal * (currentBudgetCollection[key]["percent"] / 100)).toFixed(2);
             currentBudgetCollection[key]["total"] = calculation;
+            remainderCalculation = remainderCalculation + parseFloat(calculation);
         });
+        let remainderMessage;
+        if (remainderCalculation > 0) {
+            remainderMessage = "$" + remainderCalculation + " remaining";
+        } else if (remainderCalculation < 0) {
+            remainderMessage = "-$" + remainderCalculation + " overused.";
+        }
+        console.log(remainderMessage);
+
         this.setState({budgetItemCollection: currentBudgetCollection});
         budgetcollection.setItem("budgetItemCollection", JSON.stringify(this.state.budgetItemCollection));
 
@@ -93,7 +104,10 @@ class AppLayout extends Component {
                 <div id="background-color-header"></div>
                 <BudgetInput budgetConfirmHandler={this.setBudgetTotal} currentTotal={this.state.total}/>
                 <ItemCardContainer budgetItemCollection={this.state.budgetItemCollection} copyTotal={this.copyTotal} calculate={this.calculateAmounts} itemChangeHandler={this.itemChangeHandler}/>
-                <button id="createNewButton" onClick={this.addNewItem}>+</button>
+                <div id="">
+                    {}
+                    <button id="createNewButton" onClick={this.addNewItem}>+</button>
+                </div>
             </div>
         );
     }
