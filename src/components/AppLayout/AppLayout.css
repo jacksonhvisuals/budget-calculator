@@ -1,45 +1,58 @@
 #background-color-header {
-    position: absolute;
-    width: 100%;
-    height: 253px;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-    background: linear-gradient(170.54deg, #3D00E0 20.42%, rgba(83, 0, 232, 0.69) 80.88%);
+  position: absolute;
+  width: 100%;
+  height: 253px;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  background: linear-gradient(
+    170.54deg,
+    #3d00e0 20.42%,
+    rgba(83, 0, 232, 0.69) 80.88%
+  );
 }
+
 #createNewButton {
-    margin-top: 35px; 
-    width: 79px;
-    height: 59px;
-    left: 595px;
-    top: 439px;
-    border-radius: 20px; 
-    font-size: 50px; 
-    font-weight: 100;
-    color: rgb(110, 110, 110);
-    line-height: 50px;
-    padding-bottom: 12px; 
-    border-style: dashed;
-    border-color: rgb(110, 110, 110);
+  margin-top: 35px;
+  width: 79px;
+  height: 59px;
+  left: 595px;
+  top: 439px;
+  border-radius: 20px;
+  font-size: 50px;
+  font-weight: 100;
+  color: rgb(110, 110, 110);
+  line-height: 50px;
+  padding-bottom: 12px;
+  border-style: dashed;
+  border-color: rgb(110, 110, 110);
 }
 
 #createNewButton:focus {
-    outline: 0;
+  outline: 0;
 }
+
 #createNewButton:hover {
-    background-color: #f9f9f9f9;
-    transition-duration: 0.2s;
+  background-color: #f9f9f9f9;
+  transition-duration: 0.2s;
 }
+
 input {
-    min-width: 10px;
-    border: none;
-    font-family: sans-serif;
-    background-color: transparent;
-    font-size: 56px;
-    color: #fff;
+  min-width: 10px;
+  border: none;
+  font-family: sans-serif;
+  background-color: transparent;
+  font-size: 56px;
+  color: #fff;
 }
 
-#remainderCalculation {font-size: 25px;
+#remainderCalculation {
+  font-size: 25px;
+  color: #4f4f4f;
+}
 
-    color: #4F4F4F;}
-#remainderMessage {font-size: 15px; font-weight: 200; color: #828282;}
+#remainderMessage {
+  font-size: 15px;
+  font-weight: 200;
+  color: #828282;
+}
