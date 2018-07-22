@@ -12,9 +12,12 @@ class AppLayout extends Component {
   constructor(props) {
     super(props);
 
-    if (offlineData.getItem("budgetItemCollection") != null) {
+    if (
+      offlineData.hasOwnProperty("budgetItemCollection") &&
+      offlineData.hasOwnProperty("budget")
+    ) {
       this.state = {
-        total: JSON.parse(offlineData.getItem("budget")),
+        total: JSON.parse(offlineData.getItem("dbudget")),
         budgetItemCollection: JSON.parse(
           offlineData.getItem("budgetItemCollection")
         )
@@ -31,6 +34,11 @@ class AppLayout extends Component {
           }
         ]
       };
+      offlineData.setItem(
+        "budgetItemCollection",
+        JSON.stringify(this.state.budgetItemCollection)
+      );
+      offlineData.setItem("dbudget", JSON.stringify(this.state.budget));
     }
 
     this.calculateAmounts = this.calculateAmounts.bind(this);
@@ -41,7 +49,6 @@ class AppLayout extends Component {
     this.removeItem = this.removeItem.bind(this);
     currentBudgetCollection = this.state.budgetItemCollection;
     this.calculateAmounts();
-    console.log(JSON.parse(offlineData.getItem("budgetItemCollection")));
   }
 
   calculateAmounts() {
@@ -133,7 +140,7 @@ class AppLayout extends Component {
 
   setBudgetTotal(amount) {
     this.setState({ total: amount });
-    offlineData.setItem("budget", JSON.stringify(amount));
+    offlineData.setItem("dbudget", JSON.stringify(amount));
 
     this.calculateAmounts();
   }
