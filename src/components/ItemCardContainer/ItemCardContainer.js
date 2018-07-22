@@ -18,6 +18,7 @@ export default class ItemCardContainer extends Component {
                 itemTotal={item.total}
                 itemClickHandler={this.props.copyTotal}
                 itemChangeHandler={this.props.itemChangeHandler}
+                itemRemoveHandler={this.props.deleteItemHandler}
               />
             );
           })}

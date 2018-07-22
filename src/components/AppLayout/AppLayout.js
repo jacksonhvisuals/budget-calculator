@@ -21,8 +21,15 @@ class AppLayout extends Component {
       };
     } else {
       this.state = {
-        total: 0,
-        budgetItemCollection: []
+        total: 100,
+        budgetItemCollection: [
+          {
+            name: "Example Category",
+            id: 1602100152,
+            percent: 10,
+            total: "12.30"
+          }
+        ]
       };
     }
 
@@ -31,7 +38,7 @@ class AppLayout extends Component {
     this.itemChangeHandler = this.itemChangeHandler.bind(this);
     this.selectItem = this.selectItem.bind(this);
     this.addNewItem = this.addNewItem.bind(this);
-    this.copyTotal = this.copyTotal.bind(this);
+    this.removeItem = this.removeItem.bind(this);
     currentBudgetCollection = this.state.budgetItemCollection;
     this.calculateAmounts();
     console.log(JSON.parse(offlineData.getItem("budgetItemCollection")));
@@ -39,16 +46,18 @@ class AppLayout extends Component {
 
   calculateAmounts() {
     let budgetTotal = this.state.total;
-    let calculation;
+    let calculation = 0;
     let currentlyUsed = 0;
     remainderCalculation = 0;
     Object.keys(currentBudgetCollection).forEach(function(key) {
-      calculation = (
-        budgetTotal *
-        (currentBudgetCollection[key]["percent"] / 100)
-      ).toFixed(2);
-      currentBudgetCollection[key]["total"] = calculation;
-      currentlyUsed = currentlyUsed + parseFloat(calculation);
+      if (currentBudgetCollection[key] != null) {
+        calculation = (
+          budgetTotal *
+          (currentBudgetCollection[key]["percent"] / 100)
+        ).toFixed(2);
+        currentBudgetCollection[key]["total"] = calculation;
+        currentlyUsed = currentlyUsed + parseFloat(calculation);
+      }
     });
     remainderCalculation = budgetTotal - currentlyUsed;
     if (remainderCalculation > 0) {
@@ -57,6 +66,8 @@ class AppLayout extends Component {
       remainderPercentage = Math.round(
         (remainderCalculation / budgetTotal) * 100
       );
+      remainderCalculation = "$" + remainderCalculation;
+
       remainderPercentage = "(" + remainderPercentage + "%)";
     } else if (remainderCalculation < 0) {
       remainderPercentage = Math.round(
@@ -111,6 +122,15 @@ class AppLayout extends Component {
     );
   }
 
+  removeItem(itemId) {
+    delete currentBudgetCollection[this.selectItem(itemId)];
+    this.setState({ budgetItemCollection: currentBudgetCollection });
+    offlineData.setItem(
+      "budgetItemCollection",
+      JSON.stringify(this.state.budgetItemCollection)
+    );
+  }
+
   setBudgetTotal(amount) {
     this.setState({ total: amount });
     offlineData.setItem("budget", JSON.stringify(amount));
@@ -134,9 +154,6 @@ class AppLayout extends Component {
     );
   }
 
-  // Automatically copy total to clipboard.
-  copyTotal(item) {}
-
   render() {
     return (
       <div>
@@ -148,9 +165,9 @@ class AppLayout extends Component {
         />
         <ItemCardContainer
           budgetItemCollection={this.state.budgetItemCollection}
-          copyTotal={this.copyTotal}
           calculate={this.calculateAmounts}
           itemChangeHandler={this.itemChangeHandler}
+          deleteItemHandler={this.removeItem}
         />
         <div className="lower-container">
           <div id="calculationContainer">

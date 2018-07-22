@@ -12,6 +12,7 @@ class ItemCard extends Component {
     this.updateName = this.updateName.bind(this);
     this.updatePercentage = this.updatePercentage.bind(this);
     this.updatePercentageBlur = this.updatePercentageBlur.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
     new ClipboardJS(".clipbtn");
   }
 
@@ -50,6 +51,10 @@ class ItemCard extends Component {
       this.state.itemPercentage
     );
     this.props.calculate();
+  }
+
+  deleteItem() {
+    this.props.itemRemoveHandler(this.props.itemId);
   }
 
   componentDidMount() {
@@ -92,12 +97,12 @@ class ItemCard extends Component {
             <span
               id={"itemTotal" + this.props.itemId}
               className="itemTotal clipbtn"
-              onClick={this.props.itemClickHandler(this.props.itemId)}
               data-clipboard-action="copy"
               data-clipboard-target={"#itemTotal" + this.props.itemId}
             >
               ${this.props.itemTotal}
             </span>
+            <span className="closeButton">x</span>
           </div>
         </div>
       </div>
