@@ -13,8 +13,8 @@ class AppLayout extends Component {
     super(props);
 
     if (
-      offlineData.hasOwnProperty("budgetItemCollection") &&
-      offlineData.hasOwnProperty("budget")
+      offlineData.getItem("budgetItemCollection") &&
+      offlineData.getItem("dbudget")
     ) {
       this.state = {
         total: JSON.parse(offlineData.getItem("dbudget")),
