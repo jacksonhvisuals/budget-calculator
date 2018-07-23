@@ -12,7 +12,6 @@ var remainderPercentage;
 class AppLayout extends Component {
   constructor(props) {
     super(props);
-
     if (
       offlineData.getItem("budgetItemCollection") != null &&
       offlineData.getItem("dbudget") != null

@@ -42,7 +42,7 @@
 input {
   min-width: 10px;
   border: none;
-  font-family: sans-serif;
+  font-family: "Prompt", sans-serif;
   background-color: transparent;
   font-size: 56px;
   color: #fff;
