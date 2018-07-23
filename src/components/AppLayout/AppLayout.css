@@ -18,16 +18,16 @@
   height: 50px;
   left: 595px;
   top: 439px;
-  border-radius: 20px;
   font-size: 40px;
   font-weight: 200;
   color: rgb(110, 110, 110);
-  line-height: 40px;
+  line-height: 38px;
   padding-bottom: 12px;
-  border-style: dashed;
-  border-color: rgb(110, 110, 110);
   display: inline-block;
   cursor: pointer;
+  border: 2px dashed #828282;
+  box-sizing: border-box;
+  border-radius: 20px;
 }
 
 #createNewButton:focus {
