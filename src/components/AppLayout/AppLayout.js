@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import BudgetInput from "../BudgetInput/BudgetInput";
 import ItemCardContainer from "../ItemCardContainer/ItemCardContainer";
 import "./AppLayout.css";
+
 var currentBudgetCollection;
 var offlineData = window.localStorage;
 var remainderCalculation;
@@ -13,9 +14,11 @@ class AppLayout extends Component {
     super(props);
 
     if (
-      offlineData.getItem("budgetItemCollection") &&
-      offlineData.getItem("dbudget")
+      offlineData.getItem("budgetItemCollection") != null &&
+      offlineData.getItem("dbudget") != null
     ) {
+      console.log(JSON.parse(offlineData.getItem("dbudget")));
+      console.log(JSON.parse(offlineData.getItem("budgetItemCollection")));
       this.state = {
         total: JSON.parse(offlineData.getItem("dbudget")),
         budgetItemCollection: JSON.parse(
@@ -34,11 +37,6 @@ class AppLayout extends Component {
           }
         ]
       };
-      offlineData.setItem(
-        "budgetItemCollection",
-        JSON.stringify(this.state.budgetItemCollection)
-      );
-      offlineData.setItem("dbudget", JSON.stringify(this.state.budget));
     }
 
     this.calculateAmounts = this.calculateAmounts.bind(this);
@@ -47,8 +45,21 @@ class AppLayout extends Component {
     this.selectItem = this.selectItem.bind(this);
     this.addNewItem = this.addNewItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.syncToLocalStorage = this.syncToLocalStorage.bind(this);
+
     currentBudgetCollection = this.state.budgetItemCollection;
+    this.syncToLocalStorage();
     this.calculateAmounts();
+  }
+
+  syncToLocalStorage() {
+    offlineData.setItem(
+      "budgetItemCollection",
+      JSON.stringify(this.state.budgetItemCollection)
+    );
+    offlineData.setItem("dbudget", JSON.stringify(this.state.total));
+    console.log(JSON.parse(offlineData.getItem("dbudget")));
+    console.log(JSON.parse(offlineData.getItem("budgetItemCollection")));
   }
 
   calculateAmounts() {
@@ -94,10 +105,7 @@ class AppLayout extends Component {
     }
 
     this.setState({ budgetItemCollection: currentBudgetCollection });
-    offlineData.setItem(
-      "budgetItemCollection",
-      JSON.stringify(this.state.budgetItemCollection)
-    );
+    this.syncToLocalStorage();
   }
 
   selectItem(itemid) {
@@ -123,25 +131,18 @@ class AppLayout extends Component {
     currentBudgetCollection[this.selectItem(itemId)]["name"] = itemName;
     currentBudgetCollection[this.selectItem(itemId)]["percent"] = itemPercent;
     this.setState({ budgetItemCollection: currentBudgetCollection });
-    offlineData.setItem(
-      "budgetItemCollection",
-      JSON.stringify(this.state.budgetItemCollection)
-    );
+    this.syncToLocalStorage();
   }
 
   removeItem(itemId) {
     delete currentBudgetCollection[this.selectItem(itemId)];
     this.setState({ budgetItemCollection: currentBudgetCollection });
-    offlineData.setItem(
-      "budgetItemCollection",
-      JSON.stringify(this.state.budgetItemCollection)
-    );
+    this.syncToLocalStorage();
   }
 
   setBudgetTotal(amount) {
     this.setState({ total: amount });
-    offlineData.setItem("dbudget", JSON.stringify(amount));
-
+    this.syncToLocalStorage();
     this.calculateAmounts();
   }
 
@@ -155,10 +156,7 @@ class AppLayout extends Component {
     };
     currentBudgetCollection.push(newItem);
     this.setState({ budgetItemCollection: currentBudgetCollection });
-    offlineData.setItem(
-      "budgetItemCollection",
-      JSON.stringify(this.state.budgetItemCollection)
-    );
+    this.syncToLocalStorage();
   }
 
   render() {
