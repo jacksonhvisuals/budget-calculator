@@ -191,6 +191,7 @@ class AppLayout extends Component {
           <a
             href="https://github.com/jacksonhvisuals/simplicity"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <i class="fab fa-github" />
           </a>
