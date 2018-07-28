@@ -45,6 +45,7 @@ input {
   font-family: "Prompt", sans-serif;
   background-color: transparent;
   color: #fff;
+  padding: 0;
 }
 
 #remainderCalculation-OVERUSED {
@@ -99,10 +100,10 @@ input {
   #createNewButton {
     margin-top: 26px;
     width: 57px;
-    height: 36px;
-    font-size: 30px;
-    line-height: 25px;
-    padding-bottom: 12px;
+    height: 38px;
+    font-size: 25px;
+    line-height: 30px;
+    padding: 0px;
     display: inline-block;
     cursor: pointer;
     border: 2px dashed #828282;
