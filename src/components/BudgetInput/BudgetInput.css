@@ -1,4 +1,4 @@
-#budgetInputForm {
+.HeaderContainer__input {
   min-width: 10px;
   border: none;
   font-family: "Prompt", sans-serif;
@@ -8,13 +8,13 @@
   color: #fff;
 }
 
-.headerContainer {
+.HeaderContainer {
   display: block;
   margin: auto;
   text-align: center;
 }
 
-#input-icon {
+.HeaderContainer__icon {
   padding: 6px;
   border: none;
   font-size: 56px;
@@ -37,7 +37,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-#inputsubtext {
+.HeaderContainer__subtext {
   font-family: "Prompt", sans-serif;
   font-style: normal;
   font-weight: 300;
@@ -47,13 +47,13 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 @media screen and (max-width: 600px) {
-  #budgetInputForm {
+  .HeaderContainer__input {
     font-size: 42px;
   }
-  #input-icon {
+  .HeaderContainer__icon {
     font-size: 42px;
   }
-  #inputsubtext {
+  .HeaderContainer__subtext {
     font-size: 10px;
   }
 }
