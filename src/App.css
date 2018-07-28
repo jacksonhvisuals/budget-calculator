@@ -1,33 +1,146 @@
-.App {
-  text-align: center;
+#background-color-header {
+  width: 100%;
+  height: 258px;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  background: linear-gradient(
+    170.54deg,
+    #3d00e0 20.42%,
+    rgba(83, 0, 232, 0.69) 80.88%
+  );
+  position: fixed;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#createNewButton {
+  margin-top: 35px;
+  width: 79px;
+  height: 50px;
+
+  font-size: 40px;
+  font-weight: 200;
+  color: rgb(110, 110, 110);
+  line-height: 38px;
+  padding-bottom: 12px;
+  display: inline-block;
+  cursor: pointer;
+  border: 2px dashed #828282;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 20px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+#createNewButton:focus {
+  outline: 0;
 }
 
-.App-title {
-  font-size: 1.5em;
+#createNewButton:hover {
+  background-color: #f9f9f9f9;
+  transition-duration: 0.2s;
 }
 
-.App-intro {
-  font-size: large;
-  margin-top: 20px;
+input {
+  min-width: 10px;
+  border: none;
+  font-family: "Prompt", sans-serif;
+  background-color: transparent;
+  color: #fff;
+  padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#remainderCalculation-OVERUSED {
+  font-size: 30px;
+  color: #e32a2a;
+  display: inline-block;
+}
+#remainderCalculation-REMAINING {
+  font-size: 30px;
+  color: #4f4f4f;
+  display: inline-block;
+}
+
+#remainderMessage {
+  font-size: 15px;
+  font-weight: 200;
+  color: #828282;
+  padding-left: 10px;
+  padding-right: 30px;
+  display: inline-block;
+}
+
+.lower-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-bottom: 200px;
+}
+
+.fa-github {
+  font-size: 32px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  color: #5438de;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .lower-container {
+    width: 60%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 690px) {
+  .lower-container {
+    width: 80%;
   }
+}
+@media screen and (max-width: 600px) {
+  #createNewButton {
+    margin-top: 26px;
+    width: 57px;
+    height: 38px;
+    font-size: 25px;
+    line-height: 30px;
+    padding: 0px;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px dashed #828282;
+    box-sizing: border-box;
+    border-radius: 14px;
+  }
+  #remainderCalculation-OVERUSED {
+    font-size: 20px;
+  }
+  #remainderCalculation-REMAINING {
+    font-size: 20px;
+  }
+  #remainderMessage {
+    font-size: 14px;
+  }
+  #background-color-header {
+    height: 245px;
+  }
+
+  .lower-container {
+    padding-bottom: 150px;
+  }
+
+  .fa-github {
+    margin-bottom: 20px;
+    margin-right: 0px;
+    position: static;
+    left: auto;
+    right: auto;
+  }
+}
+@media screen and (max-width: 510px) {
+  .lower-container {
+    width: 90%;
+  }
+}
+
+#calculationContainer {
+  float: right;
 }
