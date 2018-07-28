@@ -188,7 +188,12 @@ class AppLayout extends Component {
           </div>
         </div>
         <div id="github-icon">
-          <i class="fab fa-github" />
+          <a
+            href="https://github.com/jacksonhvisuals/simplicity"
+            target="_blank"
+          >
+            <i class="fab fa-github" />
+          </a>
         </div>
       </div>
     );
