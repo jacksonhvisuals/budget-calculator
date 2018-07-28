@@ -74,6 +74,10 @@ input {
   padding-bottom: 200px;
 }
 
+.GitHubIcon {
+  margin: auto;
+  text-align: center;
+}
 .fa-github {
   font-size: 32px;
   margin-bottom: 20px;

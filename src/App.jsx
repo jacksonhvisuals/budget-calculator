@@ -188,13 +188,15 @@ export default class App extends Component {
             </button>
           </div>
         </div>
-        <a
-          href="https://github.com/jacksonhvisuals/simplicity"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fab fa-github" />
-        </a>
+        <div className="GitHubIcon">
+          <a
+            href="https://github.com/jacksonhvisuals/simplicity"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-github" />
+          </a>
+        </div>
       </ErrorBoundary>
     );
   }
