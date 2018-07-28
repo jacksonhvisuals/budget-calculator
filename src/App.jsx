@@ -14,8 +14,8 @@ export default class App extends Component {
     super(props);
     this.state = {};
     if (
-      typeof offlineData.getItem("budgetItemCollection") !== "undefined" &&
-      typeof offlineData.getItem("dbudget") !== "undefined"
+      offlineData.getItem("budgetItemCollection") !== undefined &&
+      offlineData.getItem("dbudget") !== undefined
     ) {
       this.state = {
         total: JSON.parse(offlineData.getItem("dbudget")),
