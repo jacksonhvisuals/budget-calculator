@@ -187,6 +187,9 @@ class AppLayout extends Component {
             </button>
           </div>
         </div>
+        <div id="github-icon">
+          <i class="fab fa-github" />
+        </div>
       </div>
     );
   }

@@ -70,7 +70,17 @@ input {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  padding-bottom: 200px;
+  padding-bottom: 0px;
+}
+
+.fa-github {
+  font-size: 32px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  color: #5438de;
+  position: fixed;
+  right: 0;
+  bottom: 0;
 }
 
 @media screen and (max-width: 1000px) {
@@ -109,6 +119,18 @@ input {
   }
   #background-color-header {
     height: 245px;
+  }
+
+  .lower-container {
+    padding-bottom: 150px;
+  }
+
+  .fa-github {
+    margin-bottom: 20px;
+    margin-right: 0px;
+    position: static;
+    left: auto;
+    right: auto;
   }
 }
 @media screen and (max-width: 510px) {
