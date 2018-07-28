@@ -1,3 +1,11 @@
+input {
+  min-width: 10px;
+  border: none;
+  font-family: "Prompt", sans-serif;
+  background-color: transparent;
+  padding: 0;
+}
+
 .ColoredBackgroundHeader {
   width: 100%;
   height: 258px;
@@ -37,14 +45,6 @@
 .CreateNewButton:hover {
   background-color: #f9f9f9f9;
   transition-duration: 0.2s;
-}
-
-input {
-  min-width: 10px;
-  border: none;
-  font-family: "Prompt", sans-serif;
-  background-color: transparent;
-  padding: 0;
 }
 
 .RemainderCalculation--overused {
