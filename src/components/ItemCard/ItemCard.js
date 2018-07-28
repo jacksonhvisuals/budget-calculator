@@ -23,7 +23,12 @@ class ItemCard extends Component {
       this.state.itemName,
       this.state.itemPercentage
     );
-    let newWidth = evt.target.value.length + "ch";
+    let newWidth =
+      "calc(" +
+      evt.target.value.length +
+      "ch - " +
+      evt.target.value.length * 1.4 +
+      "px)";
     let inputwidth = document.getElementById("title-" + this.props.itemId);
     inputwidth.style.width = "calc(" + newWidth + " + 10px)";
     console.log("NewWidth: " + newWidth);
@@ -42,7 +47,12 @@ class ItemCard extends Component {
   updatePercentage(evt) {
     this.setState({ itemPercentage: parseInt(evt.target.value, 10) });
     let targetvalue = parseInt(evt.target.value, 10);
-    let newWidth = targetvalue.toString().length + "ch";
+    let newWidth =
+      "calc(" +
+      targetvalue.toString().length +
+      "ch - " +
+      targetvalue.toString().length * 1.4 +
+      "px)";
     let inputwidth = document.getElementById("input-" + this.props.itemId);
     inputwidth.style.width = newWidth;
     this.props.itemChangeHandler(
@@ -59,7 +69,12 @@ class ItemCard extends Component {
 
   componentDidMount() {
     let percentwidth = document.getElementById("input-" + this.props.itemId);
-    let startingWidth = percentwidth.value.length + "ch";
+    let startingWidth =
+      "calc(" +
+      percentwidth.value.length +
+      "ch - " +
+      percentwidth.value.length * 1.4 +
+      "px)";
     percentwidth.style.width = startingWidth;
 
     let titlewidth = document.getElementById("title-" + this.props.itemId);
