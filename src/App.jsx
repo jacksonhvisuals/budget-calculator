@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import BudgetInput from "./components/BudgetInput/BudgetInput.jsx";
 import ItemCardContainer from "./components/ItemCardContainer/ItemCardContainer.jsx";
-import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary.jsx";
 import "./App.css";
 
 var currentBudgetCollection;
@@ -15,8 +14,8 @@ export default class App extends Component {
     super(props);
     this.state = {};
     if (
-      offlineData.getItem("budgetItemCollection") != null &&
-      offlineData.getItem("dbudget") != null
+      typeof offlineData.getItem("budgetItemCollection") !== "undefined" &&
+      typeof offlineData.getItem("dbudget") !== "undefined"
     ) {
       this.state = {
         total: JSON.parse(offlineData.getItem("dbudget")),
