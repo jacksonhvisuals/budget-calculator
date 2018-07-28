@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ClipboardJS from "clipboard";
 import "./ItemCard.css";
 
-class ItemCard extends Component {
+export default class ItemCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -147,4 +147,3 @@ class ItemCard extends Component {
     );
   }
 }
-export default ItemCard;

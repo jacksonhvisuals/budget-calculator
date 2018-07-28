@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./BudgetInput.css";
 
-class BudgetInput extends Component {
+export default class BudgetInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,5 +69,3 @@ class BudgetInput extends Component {
     );
   }
 }
-
-export default BudgetInput;
