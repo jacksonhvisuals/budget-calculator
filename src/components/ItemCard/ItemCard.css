@@ -1,4 +1,4 @@
-.itemTitle {
+.ItemCard__title {
   display: block;
   font-style: normal;
   font-weight: 500;
@@ -8,7 +8,7 @@
   margin-top: 8px;
   margin-bottom: -5px;
 }
-.itemPercentage {
+.ItemCard__percentage-container {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -16,7 +16,7 @@
   float: left;
   color: #828282;
 }
-.itemPercentage input {
+.ItemCard__percentage-container input {
   display: inline-block;
   font-style: normal;
   font-weight: 500;
@@ -26,7 +26,7 @@
   color: #828282;
 }
 
-.itemTotal {
+.ItemCard__total {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -36,7 +36,7 @@
   cursor: pointer;
 }
 
-.item-card {
+.ItemCard {
   background-color: #fff;
   border-radius: 18px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
@@ -47,23 +47,23 @@
   position: relative;
   font-family: "Prompt", sans-serif;
 }
-.item-card::after {
+.ItemCard::after {
   clear: both;
   display: block;
   height: 0;
   content: " ";
 }
 
-.left-half {
+.LeftHalf {
   float: left;
   padding-top: 10px;
 }
-.right-half {
+.RightHalf {
   float: right;
   line-height: 90px;
 }
 
-.closeButton {
+.CloseButton {
   position: absolute;
   top: 0;
   right: 0;
@@ -76,24 +76,24 @@
   transition-duration: 0.2s;
 }
 
-.item-card:hover .right-half > .closeButton {
+.ItemCard:hover .RightHalf > .closeButton {
   color: #ffffff;
   transition-duration: 0.4s;
   transition-delay: 0.7s;
 }
 
 @media screen and (max-width: 600px) {
-  .itemTitle {
+  .ItemCard__title {
     font-size: 18px;
     margin-top: 10px;
   }
-  .itemPercentage {
+  .ItemCard__percentage {
     font-size: 12px;
   }
-  .itemTotal {
+  .ItemCard__total {
     font-size: 18px;
   }
-  .item-card {
+  .ItemCard {
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;

@@ -108,21 +108,20 @@ export default class ItemCard extends Component {
   render() {
     return (
       <div>
-        <div className="item-card" id={this.props.itemId}>
-          <div className="left-half">
+        <div className="ItemCard" id={this.props.itemId}>
+          <div className="LeftHalf">
             <input
               type="text"
-              className="itemTitle"
+              className="ItemCard__title"
               id={"title-" + this.props.itemId}
               placeholder={this.state.itemName}
               value={this.state.itemName}
               onChange={this.updateName}
             />
-            <div className="itemPercentage">
+            <div className="ItemCard__percentage-container">
               <input
                 id={"input-" + this.props.itemId}
                 type="number"
-                className="itemPercentage"
                 placeholder={this.state.itemPercentage}
                 value={this.state.itemPercentage}
                 onChange={this.updatePercentage}
@@ -131,16 +130,16 @@ export default class ItemCard extends Component {
               %
             </div>
           </div>
-          <div className="right-half">
+          <div className="RightHalf">
             <span
               id={"itemTotal" + this.props.itemId}
-              className="itemTotal clipbtn"
+              className="ItemCard__total clipbtn"
               data-clipboard-action="copy"
               data-clipboard-target={"#itemTotal" + this.props.itemId}
             >
               ${this.props.itemTotal}
             </span>
-            <span className="closeButton">x</span>
+            <span className="CloseButton">x</span>
           </div>
         </div>
       </div>

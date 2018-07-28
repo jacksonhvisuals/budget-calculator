@@ -6,7 +6,7 @@ export default class ItemCardContainer extends Component {
   render(props) {
     if (this.props.budgetItemCollection) {
       return (
-        <div className="list-container">
+        <div className="ListContainer">
           {this.props.budgetItemCollection.map(item => {
             return (
               <ItemCard
