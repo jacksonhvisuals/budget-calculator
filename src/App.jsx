@@ -13,6 +13,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    // Check to see if there is any data from a previous session, otherwise start with starter data.
     if (
       offlineData.getItem("budgetItemCollection") !== undefined &&
       offlineData.getItem("dbudget") !== undefined
@@ -114,6 +116,7 @@ export default class App extends Component {
     return element;
   }
 
+  // Handles updates in the item cards.
   itemChangeHandler(itemId, itemName, itemPercent) {
     console.log(
       "Bundle received. ID: " +
@@ -129,16 +132,18 @@ export default class App extends Component {
     this.syncToLocalStorage();
   }
 
-  removeItem(itemId) {
-    delete currentBudgetCollection[this.selectItem(itemId)];
-    this.setState({ budgetItemCollection: currentBudgetCollection });
-    this.syncToLocalStorage();
-  }
-
+  // Handles updates to the total budget.
   setBudgetTotal(amount) {
     this.setState({ total: amount });
     this.syncToLocalStorage();
     this.calculateAmounts();
+  }
+
+  // Currently unused.
+  removeItem(itemId) {
+    delete currentBudgetCollection[this.selectItem(itemId)];
+    this.setState({ budgetItemCollection: currentBudgetCollection });
+    this.syncToLocalStorage();
   }
 
   addNewItem() {

@@ -17,6 +17,7 @@ export default class ItemCard extends Component {
     new ClipboardJS(".clipbtn");
   }
 
+  // Update the title of the category card.
   updateName(evt) {
     this.setState({ itemName: evt.target.value });
     this.props.itemChangeHandler(
@@ -35,6 +36,7 @@ export default class ItemCard extends Component {
     console.log("NewWidth: " + newWidth);
   }
 
+  // Update percentage & calculate once user clicks away from the field.
   updatePercentageBlur(evt) {
     this.setState({ itemPercentage: parseInt(evt.target.value, 10) });
     this.props.itemChangeHandler(
@@ -45,6 +47,7 @@ export default class ItemCard extends Component {
     this.props.calculate();
   }
 
+  // Updates the percentage onChange.
   updatePercentage(evt) {
     this.setState({ itemPercentage: parseInt(evt.target.value, 10) });
     let targetvalue = parseInt(evt.target.value, 10);
@@ -64,6 +67,7 @@ export default class ItemCard extends Component {
     this.props.calculate();
   }
 
+  // Currently unused.
   deleteItem() {
     this.props.itemRemoveHandler(this.props.itemId);
   }
@@ -84,6 +88,7 @@ export default class ItemCard extends Component {
     document.addEventListener("keydown", this.returnFunction, false);
   }
 
+  // Run a calculation when the Enter key is hit.
   returnFunction(event) {
     if (event.keyCode === 13) {
       this.setState({

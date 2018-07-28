@@ -12,6 +12,7 @@ export default class BudgetInput extends Component {
     this.returnFunction = this.returnFunction.bind(this);
   }
 
+  // Update the Budget onChange.
   updateInputValue(evt) {
     this.setState({ inputValue: evt.target.value });
     this.props.budgetConfirmHandler(this.state.inputValue);
@@ -24,12 +25,15 @@ export default class BudgetInput extends Component {
     inputwidth.style.width = newWidth;
   }
 
+  // Update the Budget onBlur.
   updateStateValue(evt) {
     this.setState({ inputValue: evt.target.value });
     this.props.budgetConfirmHandler(this.state.inputValue);
     this.props.calculate();
     console.log(this.state.inputValue);
   }
+
+  // Run calculation when Enter key is pressed.
   returnFunction(event) {
     if (event.keyCode === 13) {
       this.setState({
@@ -40,6 +44,7 @@ export default class BudgetInput extends Component {
       this.props.calculate();
     }
   }
+
   componentDidMount() {
     let inputwidth = document.getElementsByClassName(
       "HeaderContainer__input"
