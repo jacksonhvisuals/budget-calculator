@@ -62,6 +62,7 @@ class AppLayout extends Component {
   }
 
   calculateAmounts() {
+    console.log("calculating amounts");
     let budgetTotal = this.state.total;
     let calculation = 0;
     let currentlyUsed = 0;

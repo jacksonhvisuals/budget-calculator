@@ -13,10 +13,9 @@ class BudgetInput extends Component {
 
   updateInputValue(evt) {
     this.setState({ inputValue: evt.target.value });
+    this.props.budgetConfirmHandler(this.state.inputValue);
+    this.props.calculate();
     let targetvalue = parseFloat(evt.target.value, 10);
-    console.log(
-      "The length of the Budget Input is: " + targetvalue.toString().length
-    );
     let newWidth = targetvalue.toString().length + "ch";
     let inputwidth = document.getElementById("budgetInputForm");
     inputwidth.style.width = newWidth;
@@ -28,7 +27,13 @@ class BudgetInput extends Component {
     this.props.calculate();
     console.log(this.state.inputValue);
   }
-
+  returnFunction(event) {
+    if (event.keyCode === 13) {
+      this.setState({ inputValue: event.target.value });
+      this.props.budgetConfirmHandler(this.state.inputValue);
+      this.props.calculate();
+    }
+  }
   componentDidMount() {
     let inputwidth = document.getElementById("budgetInputForm");
     let startingWidth = inputwidth.value.length + "ch";
