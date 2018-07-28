@@ -12,12 +12,11 @@ var remainderPercentage;
 class AppLayout extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
     if (
       offlineData.getItem("budgetItemCollection") != null &&
       offlineData.getItem("dbudget") != null
     ) {
-      console.log(JSON.parse(offlineData.getItem("dbudget")));
-      console.log(JSON.parse(offlineData.getItem("budgetItemCollection")));
       this.state = {
         total: JSON.parse(offlineData.getItem("dbudget")),
         budgetItemCollection: JSON.parse(
@@ -48,7 +47,6 @@ class AppLayout extends Component {
 
     currentBudgetCollection = this.state.budgetItemCollection;
     this.syncToLocalStorage();
-    this.calculateAmounts();
   }
 
   syncToLocalStorage() {
@@ -57,12 +55,9 @@ class AppLayout extends Component {
       JSON.stringify(this.state.budgetItemCollection)
     );
     offlineData.setItem("dbudget", JSON.stringify(this.state.total));
-    console.log(JSON.parse(offlineData.getItem("dbudget")));
-    console.log(JSON.parse(offlineData.getItem("budgetItemCollection")));
   }
 
   calculateAmounts() {
-    console.log("calculating amounts");
     let budgetTotal = this.state.total;
     let calculation = 0;
     let currentlyUsed = 0;
@@ -159,6 +154,10 @@ class AppLayout extends Component {
     this.syncToLocalStorage();
   }
 
+  componentDidMount() {
+    this.calculateAmounts();
+  }
+
   render() {
     return (
       <div>
@@ -194,7 +193,7 @@ class AppLayout extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i class="fab fa-github" />
+            <i className="fab fa-github" />
           </a>
         </div>
       </div>
