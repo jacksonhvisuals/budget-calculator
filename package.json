@@ -2,7 +2,6 @@
   "name": "simplicity",
   "homepage": "https://jacksonhayes.xyz/simplicity",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "clipboard": "^2.0.1",
     "react": "^16.4.0",
@@ -17,8 +16,8 @@
     "precommit": "pretty-quick --staged"
   },
   "guppy": {
-    "id": "simplicity",
-    "name": "simplicity",
+    "id": "Simplicity",
+    "name": "Simplicity",
     "type": "create-react-app",
     "color": "#cc004a",
     "icon": null,
