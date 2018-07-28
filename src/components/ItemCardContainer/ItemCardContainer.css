@@ -1,7 +1,7 @@
 .list-container {
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
+  width: 50%;
   margin-top: 35px;
 }
 
@@ -11,12 +11,12 @@
   }
 }
 
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 690px) {
   .list-container {
     width: 80%;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 510px) {
   .list-container {
     width: 90%;
   }

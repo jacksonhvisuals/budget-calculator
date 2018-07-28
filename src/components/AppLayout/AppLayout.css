@@ -16,8 +16,7 @@
   margin-top: 35px;
   width: 79px;
   height: 50px;
-  left: 595px;
-  top: 439px;
+
   font-size: 40px;
   font-weight: 200;
   color: rgb(110, 110, 110);
@@ -44,7 +43,6 @@ input {
   border: none;
   font-family: "Prompt", sans-serif;
   background-color: transparent;
-  font-size: 56px;
   color: #fff;
 }
 
@@ -71,7 +69,7 @@ input {
 .lower-container {
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
+  width: 50%;
   padding-bottom: 200px;
 }
 
@@ -81,12 +79,36 @@ input {
   }
 }
 
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 690px) {
   .lower-container {
     width: 80%;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
+  #createNewButton {
+    margin-top: 26px;
+    width: 57px;
+    height: 36px;
+    font-size: 30px;
+    line-height: 25px;
+    padding-bottom: 12px;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px dashed #828282;
+    box-sizing: border-box;
+    border-radius: 14px;
+  }
+  #remainderCalculation-OVERUSED {
+    font-size: 20px;
+  }
+  #remainderCalculation-REMAINING {
+    font-size: 20px;
+  }
+  #remainderMessage {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 510px) {
   .lower-container {
     width: 90%;
   }
