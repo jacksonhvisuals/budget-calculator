@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import BudgetInput from "./components/BudgetInput/BudgetInput";
-import ItemCardContainer from "./components/ItemCardContainer/ItemCardContainer";
-import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+import BudgetInput from "./components/BudgetInput/BudgetInput.jsx";
+import ItemCardContainer from "./components/ItemCardContainer/ItemCardContainer.jsx";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary.jsx";
 import "./App.css";
 
 var currentBudgetCollection;
