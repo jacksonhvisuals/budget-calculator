@@ -12,5 +12,4 @@ deploy:
   skip_cleanup: true
   github_token: $githubToken
   local_dir: build
-  on:
-    tags: true
+
