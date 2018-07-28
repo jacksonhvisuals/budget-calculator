@@ -1,5 +1,4 @@
 #background-color-header {
-  position: absolute;
   width: 100%;
   height: 275px;
   left: 0px;
@@ -10,6 +9,7 @@
     #3d00e0 20.42%,
     rgba(83, 0, 232, 0.69) 80.88%
   );
+  position: fixed;
 }
 
 #createNewButton {
