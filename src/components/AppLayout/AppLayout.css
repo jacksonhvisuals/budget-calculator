@@ -1,6 +1,6 @@
 #background-color-header {
   width: 100%;
-  height: 275px;
+  height: 258px;
   left: 0px;
   top: 0px;
   z-index: -1;
@@ -25,6 +25,7 @@
   display: inline-block;
   cursor: pointer;
   border: 2px dashed #828282;
+  background-color: #ffffff;
   box-sizing: border-box;
   border-radius: 20px;
 }
@@ -70,7 +71,7 @@ input {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  padding-bottom: 0px;
+  padding-bottom: 200px;
 }
 
 .fa-github {
