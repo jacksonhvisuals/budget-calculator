@@ -13,6 +13,7 @@ class ItemCard extends Component {
     this.updatePercentage = this.updatePercentage.bind(this);
     this.updatePercentageBlur = this.updatePercentageBlur.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.returnFunction = this.returnFunction.bind(this);
     new ClipboardJS(".clipbtn");
   }
 
@@ -80,6 +81,28 @@ class ItemCard extends Component {
     let titlewidth = document.getElementById("title-" + this.props.itemId);
     let titlestartingWidth = titlewidth.value.length + "ch";
     titlewidth.style.width = "calc(" + titlestartingWidth + " + 10px)";
+    document.addEventListener("keydown", this.returnFunction, false);
+  }
+
+  returnFunction(event) {
+    if (event.keyCode === 13) {
+      this.setState({
+        itemPercentage: parseInt(
+          document.getElementById("input-" + this.props.itemId).value,
+          10
+        )
+      });
+      this.props.itemChangeHandler(
+        this.props.itemId,
+        this.state.itemName,
+        this.state.itemPercentage
+      );
+      this.props.calculate();
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.returnFunction, false);
   }
 
   render() {

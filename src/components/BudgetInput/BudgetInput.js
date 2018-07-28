@@ -9,6 +9,7 @@ class BudgetInput extends Component {
     };
     this.updateInputValue = this.updateInputValue.bind(this);
     this.updateStateValue = this.updateStateValue.bind(this);
+    this.returnFunction = this.returnFunction.bind(this);
   }
 
   updateInputValue(evt) {
@@ -29,7 +30,9 @@ class BudgetInput extends Component {
   }
   returnFunction(event) {
     if (event.keyCode === 13) {
-      this.setState({ inputValue: event.target.value });
+      this.setState({
+        inputValue: document.getElementById("budgetInputForm").value
+      });
       this.props.budgetConfirmHandler(this.state.inputValue);
       this.props.calculate();
     }
@@ -38,6 +41,10 @@ class BudgetInput extends Component {
     let inputwidth = document.getElementById("budgetInputForm");
     let startingWidth = inputwidth.value.length + "ch";
     inputwidth.style.width = startingWidth;
+    document.addEventListener("keydown", this.returnFunction, false);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.returnFunction, false);
   }
 
   render() {
