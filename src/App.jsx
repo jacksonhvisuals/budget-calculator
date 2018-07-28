@@ -161,7 +161,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <ErrorBoundary>
+      <div>
         <div className="ColoredBackgroundHeader" />
         <BudgetInput
           budgetConfirmHandler={this.setBudgetTotal}
@@ -197,7 +197,7 @@ export default class App extends Component {
             <i className="fab fa-github" />
           </a>
         </div>
-      </ErrorBoundary>
+      </div>
     );
   }
 }
