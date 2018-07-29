@@ -16,8 +16,8 @@ export default class App extends Component {
 
     // Check to see if there is any data from a previous session, otherwise start with starter data.
     if (
-      offlineData.getItem("budgetItemCollection") !== undefined &&
-      offlineData.getItem("dbudget") !== undefined
+      offlineData.getItem("budgetItemCollection") !== null &&
+      offlineData.getItem("dbudget") !== null
     ) {
       this.state = {
         total: JSON.parse(offlineData.getItem("dbudget")),
