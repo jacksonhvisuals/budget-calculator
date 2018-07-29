@@ -1,4 +1,5 @@
 ![mockup](src/mockups/mockup.jpg)
 
-# Budget Calculator
+# Simplicity
+
 A beautiful budget calculator.

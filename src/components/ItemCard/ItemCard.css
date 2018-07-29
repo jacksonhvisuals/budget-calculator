@@ -1,42 +1,4 @@
-.itemTitle {
-  display: block;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  font-size: 26px;
-  color: #4f4f4f;
-  margin-top: 8px;
-  margin-bottom: -5px;
-}
-.itemPercentage {
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  font-size: 14px;
-  float: left;
-  color: #828282;
-}
-.itemPercentage input {
-  display: inline-block;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  font-size: 14px;
-  padding-right: 0px;
-  color: #828282;
-}
-
-.itemTotal {
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  font-size: 24px;
-  color: #27ae60;
-  margin-top: 30px;
-  cursor: pointer;
-}
-
-.item-card {
+.ItemCard {
   background-color: #fff;
   border-radius: 18px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
@@ -47,23 +9,71 @@
   position: relative;
   font-family: "Prompt", sans-serif;
 }
-.item-card::after {
+
+.ItemCard::after {
   clear: both;
   display: block;
   height: 0;
   content: " ";
 }
 
-.left-half {
+.ItemCard__title {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 26px;
+  color: #4f4f4f;
+  margin-top: 8px;
+  margin-bottom: -5px;
+}
+.ItemCard__percentage-container {
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 14px;
+  float: left;
+  color: #828282;
+  font-family: "Roboto", sans-serif;
+}
+.ItemCard__percentage-container input {
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 14px;
+  padding-right: 0px;
+  color: #828282;
+}
+
+.ItemCard__total {
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 24px;
+  color: #27ae60;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.LeftHalf {
   float: left;
   padding-top: 10px;
 }
-.right-half {
+
+.RightHalf {
   float: right;
   line-height: 90px;
 }
 
-.closeButton {
+.ItemCard:hover .RightHalf > .closeButton {
+  color: #ffffff;
+  transition-duration: 0.4s;
+  transition-delay: 0.7s;
+}
+
+.CloseButton {
   position: absolute;
   top: 0;
   right: 0;
@@ -76,24 +86,18 @@
   transition-duration: 0.2s;
 }
 
-.item-card:hover .right-half > .closeButton {
-  color: #ffffff;
-  transition-duration: 0.4s;
-  transition-delay: 0.7s;
-}
-
 @media screen and (max-width: 600px) {
-  .itemTitle {
+  .ItemCard__title {
     font-size: 18px;
     margin-top: 10px;
   }
-  .itemPercentage {
+  .ItemCard__percentage {
     font-size: 12px;
   }
-  .itemTotal {
+  .ItemCard__total {
     font-size: 18px;
   }
-  .item-card {
+  .ItemCard {
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ClipboardJS from "clipboard";
 import "./ItemCard.css";
 
-class ItemCard extends Component {
+export default class ItemCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,6 +17,7 @@ class ItemCard extends Component {
     new ClipboardJS(".clipbtn");
   }
 
+  // Update the title of the category card.
   updateName(evt) {
     this.setState({ itemName: evt.target.value });
     this.props.itemChangeHandler(
@@ -24,17 +25,13 @@ class ItemCard extends Component {
       this.state.itemName,
       this.state.itemPercentage
     );
-    let newWidth =
-      "calc(" +
-      evt.target.value.length +
-      "ch - " +
-      evt.target.value.length * 1.4 +
-      "px)";
+    let newWidth = "calc(" + evt.target.value.length + "ch)";
     let inputwidth = document.getElementById("title-" + this.props.itemId);
     inputwidth.style.width = "calc(" + newWidth + " + 10px)";
     console.log("NewWidth: " + newWidth);
   }
 
+  // Update percentage & calculate once user clicks away from the field.
   updatePercentageBlur(evt) {
     this.setState({ itemPercentage: parseInt(evt.target.value, 10) });
     this.props.itemChangeHandler(
@@ -45,15 +42,11 @@ class ItemCard extends Component {
     this.props.calculate();
   }
 
+  // Updates the percentage onChange.
   updatePercentage(evt) {
     this.setState({ itemPercentage: parseInt(evt.target.value, 10) });
     let targetvalue = parseInt(evt.target.value, 10);
-    let newWidth =
-      "calc(" +
-      targetvalue.toString().length +
-      "ch - " +
-      targetvalue.toString().length * 1.4 +
-      "px)";
+    let newWidth = "calc(" + targetvalue.toString().length + "ch)";
     let inputwidth = document.getElementById("input-" + this.props.itemId);
     inputwidth.style.width = newWidth;
     this.props.itemChangeHandler(
@@ -64,18 +57,14 @@ class ItemCard extends Component {
     this.props.calculate();
   }
 
+  // Currently unused.
   deleteItem() {
     this.props.itemRemoveHandler(this.props.itemId);
   }
 
   componentDidMount() {
     let percentwidth = document.getElementById("input-" + this.props.itemId);
-    let startingWidth =
-      "calc(" +
-      percentwidth.value.length +
-      "ch - " +
-      percentwidth.value.length * 1.4 +
-      "px)";
+    let startingWidth = "calc(" + percentwidth.value.length + "ch)";
     percentwidth.style.width = startingWidth;
 
     let titlewidth = document.getElementById("title-" + this.props.itemId);
@@ -84,6 +73,7 @@ class ItemCard extends Component {
     document.addEventListener("keydown", this.returnFunction, false);
   }
 
+  // Run a calculation when the Enter key is hit.
   returnFunction(event) {
     if (event.keyCode === 13) {
       this.setState({
@@ -108,21 +98,20 @@ class ItemCard extends Component {
   render() {
     return (
       <div>
-        <div className="item-card" id={this.props.itemId}>
-          <div className="left-half">
+        <div className="ItemCard" id={this.props.itemId}>
+          <div className="LeftHalf">
             <input
               type="text"
-              className="itemTitle"
+              className="ItemCard__title"
               id={"title-" + this.props.itemId}
               placeholder={this.state.itemName}
               value={this.state.itemName}
               onChange={this.updateName}
             />
-            <div className="itemPercentage">
+            <div className="ItemCard__percentage-container">
               <input
                 id={"input-" + this.props.itemId}
                 type="number"
-                className="itemPercentage"
                 placeholder={this.state.itemPercentage}
                 value={this.state.itemPercentage}
                 onChange={this.updatePercentage}
@@ -131,20 +120,19 @@ class ItemCard extends Component {
               %
             </div>
           </div>
-          <div className="right-half">
+          <div className="RightHalf">
             <span
               id={"itemTotal" + this.props.itemId}
-              className="itemTotal clipbtn"
+              className="ItemCard__total clipbtn"
               data-clipboard-action="copy"
               data-clipboard-target={"#itemTotal" + this.props.itemId}
             >
               ${this.props.itemTotal}
             </span>
-            <span className="closeButton">x</span>
+            <span className="CloseButton">x</span>
           </div>
         </div>
       </div>
     );
   }
 }
-export default ItemCard;

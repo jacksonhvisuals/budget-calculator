@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./ItemCardContainer.css";
-import ItemCard from "../ItemCard/ItemCard";
+import ItemCard from "../ItemCard/ItemCard.jsx";
 
 export default class ItemCardContainer extends Component {
   render(props) {
     if (this.props.budgetItemCollection) {
       return (
-        <div className="list-container">
+        <div className="ListContainer">
           {this.props.budgetItemCollection.map(item => {
             return (
               <ItemCard

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import BudgetInput from "../BudgetInput/BudgetInput";
-import ItemCardContainer from "../ItemCardContainer/ItemCardContainer";
-import "./AppLayout.css";
+import BudgetInput from "./components/BudgetInput/BudgetInput.jsx";
+import ItemCardContainer from "./components/ItemCardContainer/ItemCardContainer.jsx";
+import "./App.css";
 
 var currentBudgetCollection;
 var offlineData = window.localStorage;
@@ -9,13 +9,15 @@ var remainderCalculation;
 var remainderMessage;
 var remainderPercentage;
 
-class AppLayout extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    // Check to see if there is any data from a previous session, otherwise start with starter data.
     if (
-      offlineData.getItem("budgetItemCollection") != null &&
-      offlineData.getItem("dbudget") != null
+      offlineData.getItem("budgetItemCollection") !== undefined &&
+      offlineData.getItem("dbudget") !== undefined
     ) {
       this.state = {
         total: JSON.parse(offlineData.getItem("dbudget")),
@@ -75,7 +77,7 @@ class AppLayout extends Component {
     remainderCalculation = budgetTotal - currentlyUsed;
     if (remainderCalculation > 0) {
       remainderCalculation = remainderCalculation.toFixed(2);
-      remainderMessage = "REMAINING";
+      remainderMessage = "remaining";
       remainderPercentage = Math.round(
         (remainderCalculation / budgetTotal) * 100
       );
@@ -89,14 +91,14 @@ class AppLayout extends Component {
       remainderPercentage = "(" + remainderPercentage + "%)";
 
       remainderCalculation = "-$" + remainderCalculation.toFixed(2) * -1;
-      remainderMessage = "OVERUSED";
+      remainderMessage = "overused";
     } else if (remainderCalculation === 0) {
       remainderPercentage = Math.round(
         (remainderCalculation / budgetTotal) * 100
       );
       remainderPercentage = "";
       remainderCalculation = "$" + remainderCalculation;
-      remainderMessage = "REMAINING";
+      remainderMessage = "remaining";
     }
 
     this.setState({ budgetItemCollection: currentBudgetCollection });
@@ -114,6 +116,7 @@ class AppLayout extends Component {
     return element;
   }
 
+  // Handles updates in the item cards.
   itemChangeHandler(itemId, itemName, itemPercent) {
     console.log(
       "Bundle received. ID: " +
@@ -129,16 +132,18 @@ class AppLayout extends Component {
     this.syncToLocalStorage();
   }
 
-  removeItem(itemId) {
-    delete currentBudgetCollection[this.selectItem(itemId)];
-    this.setState({ budgetItemCollection: currentBudgetCollection });
-    this.syncToLocalStorage();
-  }
-
+  // Handles updates to the total budget.
   setBudgetTotal(amount) {
     this.setState({ total: amount });
     this.syncToLocalStorage();
     this.calculateAmounts();
+  }
+
+  // Currently unused.
+  removeItem(itemId) {
+    delete currentBudgetCollection[this.selectItem(itemId)];
+    this.setState({ budgetItemCollection: currentBudgetCollection });
+    this.syncToLocalStorage();
   }
 
   addNewItem() {
@@ -161,7 +166,7 @@ class AppLayout extends Component {
   render() {
     return (
       <div>
-        <div id="background-color-header" />
+        <div className="ColoredBackgroundHeader" />
         <BudgetInput
           budgetConfirmHandler={this.setBudgetTotal}
           currentTotal={this.state.total}
@@ -173,21 +178,21 @@ class AppLayout extends Component {
           itemChangeHandler={this.itemChangeHandler}
           deleteItemHandler={this.removeItem}
         />
-        <div className="lower-container">
-          <div id="calculationContainer">
-            <div id={"remainderCalculation-" + remainderMessage}>
+        <div className="LowerContainer">
+          <div className="CalculationContainer">
+            <div className={"RemainderCalculation--" + remainderMessage}>
               {remainderCalculation}
             </div>
-            <div id="remainderMessage">
+            <div className="RemainderMessage">
               {remainderPercentage} {remainderMessage}
             </div>
 
-            <button id="createNewButton" onClick={this.addNewItem}>
+            <button className="CreateNewButton" onClick={this.addNewItem}>
               +
             </button>
           </div>
         </div>
-        <div id="github-icon">
+        <div className="GitHubIcon">
           <a
             href="https://github.com/jacksonhvisuals/simplicity"
             target="_blank"
@@ -200,5 +205,3 @@ class AppLayout extends Component {
     );
   }
 }
-
-export default AppLayout;
