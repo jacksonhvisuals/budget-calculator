@@ -34,9 +34,11 @@
   font-size: 14px;
   float: left;
   color: #828282;
+  font-family: "Roboto", sans-serif;
 }
 .ItemCard__percentage-container input {
   display: inline-block;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
