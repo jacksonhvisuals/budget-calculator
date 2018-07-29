@@ -27,13 +27,19 @@ export default class App extends Component {
       };
     } else {
       this.state = {
-        total: 100,
+        total: 1039,
         budgetItemCollection: [
           {
-            name: "Example Category",
-            id: 1602100152,
+            name: "Housing",
+            id: 109709758,
             percent: 10,
-            total: "12.30"
+            total: "103.9"
+          },
+          {
+            name: "Food",
+            id: 16193800152,
+            percent: 12,
+            total: "124.68"
           }
         ]
       };
