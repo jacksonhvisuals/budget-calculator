@@ -117,7 +117,7 @@ export default class ItemCard extends Component {
               value={this.state.itemName}
               onChange={this.updateName}
             />
-            <div className="ItemCard__percentage-container">
+            <div className="ItemCard__percentage-container noselect">
               <input
                 id={"input-" + this.props.itemId}
                 type="number"
@@ -129,7 +129,7 @@ export default class ItemCard extends Component {
               %
             </div>
           </div>
-          <div className="RightHalf">
+          <div className="RightHalf noselect">
             <span
               id={"itemTotal" + this.props.itemId}
               className="ItemCard__total clipbtn"

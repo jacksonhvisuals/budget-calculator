@@ -60,7 +60,7 @@ export default class BudgetInput extends Component {
   render() {
     return (
       <div className="HeaderContainer">
-        <div className="HeaderContainer__icon">$</div>
+        <div className="HeaderContainer__icon noselect">$</div>
         <input
           type="number"
           step="0.01"
@@ -70,7 +70,7 @@ export default class BudgetInput extends Component {
           onChange={this.updateInputValue}
           onBlur={this.updateStateValue}
         />
-        <div className="HeaderContainer__subtext">TOTAL AMOUNT</div>
+        <div className="HeaderContainer__subtext noselect">TOTAL AMOUNT</div>
       </div>
     );
   }

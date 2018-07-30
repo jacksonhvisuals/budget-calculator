@@ -187,7 +187,7 @@ export default class App extends Component {
           deleteItemHandler={this.removeItem}
         />
         <div className="LowerContainer">
-          <div className="CalculationContainer">
+          <div className="CalculationContainer noselect">
             <div className={"RemainderCalculation--" + remainderMessage}>
               {remainderCalculation}
             </div>
@@ -195,12 +195,15 @@ export default class App extends Component {
               {remainderPercentage} {remainderMessage}
             </div>
 
-            <button className="CreateNewButton" onClick={this.addNewItem}>
+            <button
+              className="CreateNewButton noselect"
+              onClick={this.addNewItem}
+            >
               +
             </button>
           </div>
         </div>
-        <div className="GitHubIcon">
+        <div className="GitHubIcon noselect">
           <a
             href="https://github.com/jacksonhvisuals/simplicity"
             target="_blank"
