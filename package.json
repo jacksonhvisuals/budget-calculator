@@ -3,11 +3,13 @@
   "homepage": "https://jacksonhayes.xyz/simplicity",
   "version": "0.1.0",
   "dependencies": {
+    "ajv": "^6.5.2",
     "babel-cli": "^6.26.0",
     "babel-preset-airbnb": "^2.5.3",
     "clipboard": "^2.0.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-notify-toast": "^0.5.0",
     "react-scripts": "1.1.4"
   },
   "scripts": {
@@ -29,5 +31,10 @@
     "husky": "^0.14.3",
     "prettier": "1.13.7",
     "pretty-quick": "^1.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacksonhvisuals/simplicity"
+  },
+  "license": "Apache-2.0"
 }

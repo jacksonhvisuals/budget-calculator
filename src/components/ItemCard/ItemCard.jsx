@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ClipboardJS from "clipboard";
+import Notifications, { notify } from "react-notify-toast";
 import "./ItemCard.css";
 
 export default class ItemCard extends Component {
@@ -14,6 +15,7 @@ export default class ItemCard extends Component {
     this.updatePercentageBlur = this.updatePercentageBlur.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.returnFunction = this.returnFunction.bind(this);
+    this.sendToast = this.sendToast.bind(this);
     new ClipboardJS(".clipbtn");
   }
 
@@ -91,6 +93,13 @@ export default class ItemCard extends Component {
     }
   }
 
+  // Sends the toast notification when the percentage is clicked.
+  sendToast() {
+    notify.show("Copied to clipboard!", "custom", 2000, {
+      background: "#ffffff",
+      text: "#000000"
+    });
+  }
   componentWillUnmount() {
     document.removeEventListener("keydown", this.returnFunction, false);
   }
@@ -124,6 +133,7 @@ export default class ItemCard extends Component {
             <span
               id={"itemTotal" + this.props.itemId}
               className="ItemCard__total clipbtn"
+              onClick={this.sendToast}
               data-clipboard-action="copy"
               data-clipboard-target={"#itemTotal" + this.props.itemId}
             >

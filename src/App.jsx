@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import BudgetInput from "./components/BudgetInput/BudgetInput.jsx";
 import ItemCardContainer from "./components/ItemCardContainer/ItemCardContainer.jsx";
+import Notifications, { notify } from "react-notify-toast";
 import "./App.css";
 
 var currentBudgetCollection;
@@ -172,6 +173,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <Notifications />
         <div className="ColoredBackgroundHeader" />
         <BudgetInput
           budgetConfirmHandler={this.setBudgetTotal}
