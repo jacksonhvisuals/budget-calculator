@@ -1,7 +1,7 @@
 {
   "name": "simplicity",
   "homepage": "https://jacksonhayes.xyz/simplicity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "ajv": "^6.5.2",
     "babel-cli": "^6.26.0",
@@ -10,7 +10,7 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-notify-toast": "^0.5.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "^1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
