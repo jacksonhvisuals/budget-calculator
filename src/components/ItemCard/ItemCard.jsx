@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ClipboardJS from "clipboard";
-import Notifications, { notify } from "react-notify-toast";
+import { notify } from "react-notify-toast";
 import "./ItemCard.css";
 
 export default class ItemCard extends Component {

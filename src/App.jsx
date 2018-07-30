@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import BudgetInput from "./components/BudgetInput/BudgetInput.jsx";
 import ItemCardContainer from "./components/ItemCardContainer/ItemCardContainer.jsx";
-import Notifications, { notify } from "react-notify-toast";
+import Notifications from "react-notify-toast";
 import "./App.css";
 
 var currentBudgetCollection;
