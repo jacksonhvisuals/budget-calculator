@@ -1,0 +1,19 @@
+{
+    "name": "Simplicity",
+    "short_name": "Simplicity",
+    "icons": [
+        {
+            "src": "../src/favicon/android-chrome-192x192.png?v=yyL086MrBd",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "../src/favicon/android-chrome-512x512.png?v=yyL086MrBd",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#5438de",
+    "background_color": "#5438de",
+    "display": "standalone"
+}
