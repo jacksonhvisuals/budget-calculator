@@ -4,7 +4,7 @@
 
 > A simple budget-splitting app built with React.
 
-[Visit Simplicity.](https://jacksonhayes.xyz/simplicity)
+[Visit.](https://jacksonhayes.xyz/simplicity)
 
 ## How to use Simplicity
 
