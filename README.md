@@ -4,6 +4,8 @@
 
 > A simple budget-splitting app built with React.
 
+[Visit Simplicity.](https://jacksonhayes.xyz/simplicity)
+
 ## How to use Simplicity
 
 Using the app is easy. Simply edit the total budget amount at the top of the app, and then create categories as needed. You can easily copy the calculated amounts (to paste in another app, such as [YNAB](https://youneedabudget.com)) by clicking on them.
