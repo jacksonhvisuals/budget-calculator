@@ -20,6 +20,10 @@ Without [Codecademy's incredible React course](https://www.codecademy.com/pro/in
 
 Contributions are welcome! Feel free to open a PR with your changes, and I'll give it a look.
 
+## Credits
+
+Written by Jackson Hayes. Special thanks to [Janina Espiritu](https://www.instagram.com/janinaespiritu_/) for the icon and graphics.
+
 ## License
 
 Simplicity is open-source, licensed under the [Apache-2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
